@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1781368880.91676 "main.aux" "main.bbl" "main" 1781369088.67098 0
+["bibtex main"] 1781376325.95051 "main.aux" "main.bbl" "main" 1781376336.62686 0
   "./references.bib" 1781253280 1396 21e37279032663d33b92f754f23d76e8 ""
   "/usr/local/texlive/2026basic/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1233624470 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
-  "main.aux" 1781369088.5651 9869 310cdad1955b3b4a3fa4084a9393f0c8 "pdflatex"
+  "main.aux" 1781376336.53435 9462 fe7b2864970a5adb255aa898ffcfccf2 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1781369084.73701 "/Users/thomaspedersen/Desktop/Bachelor_Projekt___TDC/main.tex" "main.pdf" "main" 1781369088.67117 0
+["pdflatex"] 1781376333.13843 "/Users/thomaspedersen/Desktop/Bachelor_Projekt___TDC/main.tex" "main.pdf" "main" 1781376336.62702 0
   "/Users/thomaspedersen/Desktop/Bachelor_Projekt___TDC/main.tex" 1781368814.24293 2096 14d4b90427141d0575704692bc59085d ""
   "/Users/thomaspedersen/Library/texlive/2026basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1781368771.87004 14040 4179d725c373412221622cb4b4364c09 ""
   "/usr/local/texlive/2026basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -87,21 +87,18 @@
   "/usr/local/texlive/2026basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1781265215 79187 e3f5941707347d15c1721f52279213a2 ""
   "/usr/local/texlive/2026basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1781265208 2966192 3ccf587250e533dcc72b18ac01f7b2cd ""
   "/usr/local/texlive/2026basic/texmf.cnf" 1772405582 628 bbc09d6d38872d53c11bb48dc9b14e88 ""
-  "OLS.tex" 1781253280 1908 e061605a15dbbd56258190c665a2c10c ""
+  "OLS.tex" 1781376321.76251 2468 c70948bf0a32463cd0433458cbf82acc ""
   "Theory.tex" 1781253280 20222 029c7fcfe1ff8d588379ab7202cb4bab ""
-  "arima.tex" 1781368876.13265 11867 a61ed44d083caac41d9b2d5cb6fa4f77 ""
+  "arima.tex" 1781376321.7537 10551 a3bc9c3ac259f2bbcd99e3d691d77061 ""
   "classification.tex" 1781253282 5954 f2f142db8f6fab06f918433bbc1d78c1 ""
   "dataset.tex" 1781368875.98814 6971 8e4f45dbea4e25e5ec5c730326d43bf0 ""
   "figures/9_tower_time_feature_daily_max.png" 1781253280 662422 6e2df5b5b4cecc293f8060481d472f51 ""
   "figures/Danmarks_Tekniske_Universitet_(logo).svg.png" 1781253280 120964 33fddb17bce945f1e7accf2ac58cdf74 ""
   "figures/Frequency_reuse.png" 1781253280 18097 b47e3cf4933c53fe2cbfc68d5c01ea6b ""
   "figures/TDC.svg.png" 1781253280 40031 e1054c41cf37ca43063decc455c49c8b ""
-  "figures/arima_global_post_order.png" 1781253280 48537 a2b5cae07e1f0847b4fdc8637645fdc2 ""
   "figures/arima_global_pre_order.png" 1781253280 56616 9c19038b8e7d367d82db8f8ed79ea64f ""
   "figures/arima_non_seasonal_pre_order.png" 1781253280 58955 9c23e8d3526ceace4e9b3a8fed29f7e4 ""
   "figures/arima_non_seasonal_pred.png" 1781253280 243769 20776a3ac1298346e91fefa69a71176a ""
-  "figures/arima_post_non_seasonal_order_2.png" 1781253280 52629 181d410836abf59c26bad6f9ea183c13 ""
-  "figures/arima_post_seasonal_order_2.png" 1781253280 60494 c1a7b523b2cc49e4a547f2faf874e5a8 ""
   "figures/arima_seasonal_pre_order.png" 1781253280 50270 320a3363e1ee75e400d66082142b229f ""
   "figures/arima_seasonal_pred.png" 1781253280 272927 e0365647322d5f92ea963a46dae4180f ""
   "figures/avg_hourly_per_site.png" 1781253280 329747 a28869122baa3f67a0cd30b9c774c8a9 ""
@@ -116,10 +113,10 @@
   "figures/t_test_all_cells.png" 1781253280 164392 d3e814cc7b70881a9ab69815fa5d674f ""
   "forecasting.tex" 1781253282 3773 88ad5c17bc28f086ad114ff756500abd ""
   "introduction_3.tex" 1781253280 4253 a0aac28d66a4adaad761fe6227e5043a ""
-  "main.aux" 1781369088.5651 9869 310cdad1955b3b4a3fa4084a9393f0c8 "pdflatex"
-  "main.bbl" 1781368885.5819 1643 a4daf985270eea694947ca4af773a040 "bibtex main"
+  "main.aux" 1781376336.53435 9462 fe7b2864970a5adb255aa898ffcfccf2 "pdflatex"
+  "main.bbl" 1781376325.98259 1633 8cf764f937a2e95df60026afb0faf21f "bibtex main"
   "main.tex" 1781368814.24293 2096 14d4b90427141d0575704692bc59085d ""
-  "main.toc" 1781369088.56629 1977 0436af71129249d224a986283252bbf9 "pdflatex"
+  "main.toc" 1781376336.53542 1977 250937dd87bba639e6bb8f25a598bed9 "pdflatex"
   "preprocessing.tex" 1781253282 2576 36c68670310e21e1054359111d93fe72 ""
   (generated)
   "main.aux"

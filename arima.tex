@@ -159,53 +159,13 @@ Across all configurations, performance improvements are primarily driven by shor
 
 \subsubsection{Post Feature Selection Orders}
 
-\begin{figure}[htbp]
-    \centering
-
-    \begin{subfigure}[b]{0.9\linewidth}
-        \centering
-        \includegraphics[width=0.9\linewidth]{figures/arima_post_seasonal_order_2.png}
-        \caption{Seasonal Orders}
-        \label{fig:arima_seasonal_post_order}
-    \end{subfigure}
-
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.9\linewidth}
-        \centering
-        \includegraphics[width=0.9\linewidth]{figures/arima_post_non_seasonal_order_2.png}
-        \caption{Non seasonal Orders}
-        \label{fig:arima_global_post_order}
-    \end{subfigure}
-
-    \begin{subfigure}[b]{0.9\linewidth}
-        \centering
-        \includegraphics[width=0.9\linewidth]{figures/arima_global_post_order.png}
-        \caption{Global Arima Orders}
-        \label{fig:arima_non_seasonal_post_order}
-    \end{subfigure}
-
-    
-    
-    \caption{Arima coefficients post feature selection}
-    \label{fig:post_order_arima}
-\end{figure}
-
-
-The seasonal ARIMA configuration produced 3 orders that occurred with equal frequency of 4 during the selection process. These tied configurations were:
-\[
-(1,0,0)(0,0,0,7), \quad (3,0,1)(1,0,1,7), \quad (2,0,1)(1,0,1,7)
-\]
-
-Since multiple configurations achieved the same selection frequency, each candidate model was evaluated directly using RMSE on the validation set.
-
 The resulting performance was:
 
-\begin{itemize}
-    \item Model 1: RMSE = 1.5291
-    \item Model 2: RMSE = 1.5649
-    \item Model 3: RMSE = 1.5644
-\end{itemize}
+(1, 1, 1) (0, 0, 0, 7) -> 1.6286740698148208
+(0, 1, 2) (0, 0, 0, 7) -> 1.6421207574332402
+(2, 1, 1) (1, 0, 1, 7) -> 1.8821604312943678
+(2, 1, 1) (0, 0, 0, 7) -> 1.836335315622857
+(1, 1, 2) (1, 0, 1, 7) -> 1.7244589444923621
 
 Based on these results, the best-performing configuration for seasonal cells was:
 \[
@@ -213,9 +173,15 @@ Based on these results, the best-performing configuration for seasonal cells was
 \]
 with a final RMSE of 1.5291.
 
-This indicates that a simpler non-seasonal structure performed slightly better than more complex seasonal alternatives, suggesting that seasonal effects are present but not strongly dominant in the selected cells.
 
-Both the non-seasonal and global model got the same order before and after adding features so there RMSE ended up at 1.54 with an order of (0,1,1)(0,0,0,7)
+\textbf{Non-seasonal cells}
+
+(0, 1, 1) (0, 0, 0, 7) -> 1.5406868111115992
+(1, 0, 0) (0, 0, 0, 7) -> 1.499995505912129
+(0, 0, 0) (0, 0, 1, 7) -> 1.5238978829181384
+(0, 0, 2) (0, 0, 0, 7) -> 1.6096546642404328
+(1, 0, 0) (1, 0, 0, 7) -> 1.5356852778076302
+
 
 \subsection{comparison}
 

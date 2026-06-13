@@ -31,5 +31,21 @@ The same forward feature selection procedure used for the SARIMAX models (Algori
 
 At each iteration, an OLS model was fitted using the current selected feature set and one additional candidate feature. The feature producing the largest reduction in validation RMSE was retained. The process continued until no further improvement in performance was observed.
 
+\begin{table}[htbp]
+	\centering
+	\caption{Feature selection results across seasonal, non-seasonal, and all-cell models}
+	\label{tab:feature_selection_all}
+	
+	\begin{tabular}{lcc}
+		\toprule
+		\textbf{Model Type} & \textbf{Selected Features (final step)} & \textbf{RMSE} \\
+		\midrule
+		Seasonal cells & roll\_mean\_7, lag1, roll\_mean\_14, roll\_std\_14, holiday & 1.45 \\	
+		Non-seasonal cells & roll\_mean\_14, lag1, roll\_std\_14, is\_weekend & 1.60 \\
+		All cells & roll\_min\_7, lag\_1, lag\_diff\_1\_7 & 1.54 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
 \subsubsection{results}
 The results for the 3 data grops were as follows
