@@ -1,0 +1,52 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[wikipedia contributers()]{120_degree_sectors}
+wikipedia contributers.
+\newblock Cell site.
+\newblock \emph{wikipedia}.
+\newblock URL \url{https://en.wikipedia.org/wiki/Cell_site}.
+
+\bibitem[Wahome(2023)]{handoff}
+Wahome.
+\newblock The cellular concept: Handoffs.
+\newblock \emph{Medium}, 2023.
+\newblock URL
+  \url{https://kwahome.medium.com/the-cellular-concept-handoffs-fc8e09a4f037}.
+
+\bibitem[CHANG(1966)]{ofdm_paper}
+ROBERT~W. CHANG.
+\newblock Synthesis of band-limited orthogonal signals for multichannel data
+  transmission.
+\newblock \emph{IEEE}, 1966.
+
+\bibitem[{Ericsson}(2019)]{ericsson5gnr}
+{Ericsson}.
+\newblock \emph{5G NR: The Next Generation Wireless Access Technology}.
+\newblock 2019.
+
+\bibitem[{3GPP}(2026)]{3gpp_ts38214}
+{3GPP}.
+\newblock 3gpp ts 38.214.
+\newblock Technical report, 3rd Generation Partnership Project, 2026.
+\newblock URL
+  \url{https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3216}.
+
+\bibitem[Blokdy(2022)]{prb_grid}
+Gerardus Blokdy.
+\newblock \emph{LTE-M}.
+\newblock 5STARCooks, 2022.
+
+\bibitem[Ahmadi(2011)]{proportional-fair}
+Sassan Ahmadi.
+\newblock \emph{The IEEE 802.16m Medium, Access Control Common, Part Sub-layer
+  (Part I)}.
+\newblock sciencedirect, 2011.
+\newblock URL
+  \url{https://www.sciencedirect.com/topics/computer-science/proportional-fair-scheduler}.
+
+\end{thebibliography}

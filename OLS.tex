@@ -1,0 +1,35 @@
+Ordinary Least Squares (OLS) is a linear regression method that estimates parameters by minimizing the sum of squared errors between observed values and predictions.
+
+In the simplest case with one feature, OLS fits a line of the form:
+\[
+y = \beta_0 + \beta_1 x
+\]
+where $\beta_0$ is the intercept and $\beta_1$ is the slope. These are chosen to minimize:
+\[
+\min_{\beta_0, \beta_1} \sum_{i=1}^{n} (y_i - (\beta_0 + \beta_1 x_i))^2
+\]
+
+Unlike ARIMA, which models temporal dependence using past values of the time series, OLS does not assume any time structure. Each observation is treated as independent.
+
+With multiple features, OLS generalizes to:
+\[
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_p x_p
+\]
+
+or in matrix form:
+\[
+\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}
+\]
+
+Here, $\mathbf{X}$ is the feature matrix, $\boldsymbol{\beta}$ is the vector of learned coefficients, and $\boldsymbol{\epsilon}$ is the error term. \\
+
+Each feature contributes additively to the prediction through its own weight, along with a single shared intercept. This allows OLS to incorporate engineered inputs such as lagged values, rolling statistics, or external variables, but it does not explicitly model time dynamics.
+
+\subsubsection{Feature selection}
+
+The same forward feature selection procedure used for the SARIMAX models (Algorithm~\ref{alg:algo_1}) was applied to the OLS model. The candidate feature pool, evaluation metric, and stopping criterion were kept identical to ensure a fair comparison between the two approaches.
+
+At each iteration, an OLS model was fitted using the current selected feature set and one additional candidate feature. The feature producing the largest reduction in validation RMSE was retained. The process continued until no further improvement in performance was observed.
+
+\subsubsection{results}
+The results for the 3 data grops were as follows

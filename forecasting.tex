@@ -1,0 +1,59 @@
+This section builds on the classification results presented earlier. The motivation for classification is to better understand underlying traffic patterns before performing forecasting. By separating network sites into seasonal and non-seasonal groups, it becomes possible to evaluate whether different traffic dynamics require different forecasting strategies. \\
+
+\textbf{Mean Squared Error} \\
+Doing this analysis the different models will be evaluated using the Mean Squared Error (MSE) which is defined as:
+
+\begin{equation}
+    \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+    \label{eq:mse}
+\end{equation}
+
+where $y_i$ is the observed value and $\hat{y}_i$ is the predicted value. MSE penalizes larger errors more heavily due to the squaring term, making it particularly sensitive to large deviations, which is desirable in a network planning context where significant underestimation of peak traffic can lead to network overload. \\
+
+\subsection{Baseline Models}
+
+Before introducing more complex forecasting approaches, several baseline models are defined to provide reference performance levels. These baselines allow for a fair evaluation of whether more advanced methods provide meaningful improvements. \\
+
+The dataset is evaluated under three settings, seasonal cells, non-seasonal cells, and a combined dataset. This enables analysis of whether traffic behavior differs across network environments. The cells were split into the different groups by the t-test as shown in figure \ref{eq:ttest}, if the p-value was below 0.05, there was not enough evidence that the cell was seasonal and it was put in the non-seasonal category.  \\
+
+The forecasting target is the daily peak traffic volume, defined as the maximum observed hourly traffic within a day as seen in figure \ref{fig:U1_vs_R1_daily_max}. This metric is particularly important for network planning, as it reflects peak load conditions that are critical for capacity management. \\
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\hline
+\textbf{Model} & \textbf{All} & \textbf{Recreational} & \textbf{Urban} \\
+\hline
+Seasonal Naive & 7.57 & 7.96 & 7.37 \\
+Mean Naive     &  4.62 & 3.98 & 4.91 \\
+Previous Naive & 3.56 & 3.57  & 5.01 \\
+\hline
+\end{tabular}
+\caption{Mean Squared Error (MSE) for baseline forecasting models across different site categories}
+\label{tab:baseline_models}
+\end{table}
+
+Table~\ref{tab:baseline_models} presents the baseline model results evaluated on the final two months of the dataset (January--March 2026). The seasonal naive model, which forecasts each period by repeating the corresponding values from the previous year, performs worst across all splits. This suggests that traffic patterns are not stable year over year. \\
+
+The mean naive model forecasts using the training set mean, while the previous naive model uses the most recently observed value as the prediction. A notable pattern is seen when comparing the two across dataset splits, the mean model performs better on non-seasonal cells, while the previous value model performs better on seasonal cells. This is consistent with the underlying traffic patterns, non-seasonal cells shows relatively stable behavior over time, making the mean a reliable predictor, whereas seasonal cells are subject to gradual trends and periodic fluctuations, meaning recent observations carry more predictive information than the historical average. \\
+
+It should be noted that MSE values are not directly comparable across dataset splits, as seasonal and non-seasonal cells differ in their underlying traffic variance. Comparisons are therefore made within each group independently. \\
+
+\subsection{ARIMA}
+\input{arima}
+
+
+\subsection{Ordinary Least Squares}
+\input{OLS}
+
+\subsection{XGboost}
+
+
+
+
+
+
+
+
+ 
+ 

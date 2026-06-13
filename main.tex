@@ -1,0 +1,109 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[numbers]{natbib}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{booktabs}
+\usepackage{textcomp}
+\usepackage{url}
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+\setlength{\parindent}{0pt}
+\begin{document}
+%\chapter{ }
+\begin{titlepage}
+    \centering
+        % Title
+    {\Huge \bfseries
+    Seasonal Classification and Traffic Forecasting in Mobile Network Cells
+    \par}
+
+    \vspace{1.5cm}
+
+    {\Large Bachelor Project \par}
+
+    \vspace{2cm}
+
+    % Author info
+    {\Large
+    Thomas Møller Pedersen
+    \par}
+
+    \vspace{0.5cm}
+
+    {\large
+    Technical University of Denmark
+    \par}
+
+
+
+    % Bottom section
+    {\large
+    June 2026
+    \par}
+    \vfill
+    % Logos
+    \begin{minipage}{0.45\textwidth}
+        \flushleft
+        \includegraphics[width=0.7\linewidth]{figures/Danmarks_Tekniske_Universitet_(logo).svg.png}
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        \flushright
+        \includegraphics[width=0.7\linewidth]{figures/TDC.svg.png}
+    \end{minipage}
+
+    \vspace{3cm}
+
+
+
+
+
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+
+%\begin{abstract}
+%Gibberish text goes here to simulate the abstract. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula massa at sapien tempor, vitae convallis arcu dapibus. Nulla facilisi. Integer in turpis non lorem cursus cursus.
+%\end{abstract}
+
+\section{Introduction}
+\input{introduction_3}
+
+%\section{related work}
+%\input{related work}
+
+\section{Theory}
+\input{Theory}
+\section{Dataset and Preprocessing}
+\input{dataset}
+\subsection{Preprocessing}
+\input{preprocessing}
+
+
+
+\section{Network Site Classification}
+\input{classification}
+
+\section{Traffic Forecasting}
+\input{forecasting}
+
+\section{Results and Discussion}
+%\input{results}
+
+\section{Conclusion}
+Summarize your findings. 
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\end{document}

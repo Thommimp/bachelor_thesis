@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99e (TeX Live 2026)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: unsrtnat.bst
+Database file #1: references.bib
+Warning--empty year in 120_degree_sectors
+Warning--empty year in 120_degree_sectors
+Warning--empty publisher in ericsson5gnr
+You've used 7 entries,
+            2481 wiz_defined-function locations,
+            588 strings with 5243 characters,
+and the built_in function-call counts, 1879 in all, are:
+= -- 159
+> -- 49
+< -- 7
++ -- 28
+- -- 14
+* -- 91
+:= -- 320
+add.period$ -- 25
+call.type$ -- 7
+change.case$ -- 12
+chr.to.int$ -- 7
+cite$ -- 10
+duplicate$ -- 125
+empty$ -- 196
+format.name$ -- 21
+if$ -- 392
+int.to.chr$ -- 1
+int.to.str$ -- 8
+missing$ -- 9
+newline$ -- 47
+num.names$ -- 21
+pop$ -- 69
+preamble$ -- 1
+purify$ -- 7
+quote$ -- 0
+skip$ -- 71
+stack$ -- 0
+substring$ -- 14
+swap$ -- 13
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 40
+warning$ -- 3
+while$ -- 14
+width$ -- 0
+write$ -- 98
+(There were 3 warnings)

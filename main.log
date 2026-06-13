@@ -1,0 +1,962 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.12)  13 JUN 2026 18:55
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count283
+\Gm@cntv=\count284
+\c@Gm@tempcnt=\count285
+\Gm@bindingoffset=\dimen149
+\Gm@wd@mp=\dimen150
+\Gm@odd@mp=\dimen151
+\Gm@even@mp=\dimen152
+\Gm@layoutwidth=\dimen153
+\Gm@layoutheight=\dimen154
+\Gm@layouthoffset=\dimen155
+\Gm@layoutvoffset=\dimen156
+\Gm@dimlist=\toks18
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks19
+\inpenc@posthook=\toks20
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen157
+\Gin@req@width=\dimen158
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks21
+\ex@=\dimen159
+))
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen160
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count286
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count287
+\leftroot@=\count288
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count289
+\DOTSCASE@=\count290
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen161
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count291
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count292
+\dotsspace@=\muskip17
+\c@parentequation=\count293
+\dspbrk@lvl=\count294
+\tag@help=\toks22
+\row@=\count295
+\column@=\count296
+\maxfields@=\count297
+\andhelp@=\toks23
+\eqnshift@=\dimen162
+\alignsep@=\dimen163
+\tagshift@=\dimen164
+\tagwidth@=\dimen165
+\totwidth@=\dimen166
+\lineht@=\dimen167
+\@envbody=\toks24
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip54
+\bibsep=\skip55
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count298
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen168
+\captionmargin=\dimen169
+\caption@leftmargin=\dimen170
+\caption@rightmargin=\dimen171
+\caption@width=\dimen172
+\caption@indent=\dimen173
+\caption@parindent=\dimen174
+\caption@hangindent=\dimen175
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count299
+\c@continuedfloat=\count300
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count301
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count302
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count303
+\float@exts=\toks26
+\float@box=\box55
+\@float@everytoks=\toks27
+\@floatcapt=\box56
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks28
+\c@algorithm=\count304
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/algorithms/algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+\c@ALC@unique=\count305
+\c@ALC@line=\count306
+\c@ALC@rem=\count307
+\c@ALC@depth=\count308
+\ALC@tlm=\skip56
+\algorithmicindent=\skip57
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen176
+\lightrulewidth=\dimen177
+\cmidrulewidth=\dimen178
+\belowrulesep=\dimen179
+\belowbottomsep=\dimen180
+\aboverulesep=\dimen181
+\abovetopsep=\dimen182
+\cmidrulesep=\dimen183
+\cmidrulekern=\dimen184
+\defaultaddspace=\dimen185
+\@cmidla=\count309
+\@cmidlb=\count310
+\@aboverulesep=\dimen186
+\@belowrulesep=\dimen187
+\@thisruleclass=\count311
+\@lastruleclass=\count312
+\@thisrulewidth=\dimen188
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
+ef
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count313
+) (./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=452.9679pt
+* \textheight=700.50687pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count314
+\scratchdimen=\dimen189
+\scratchbox=\box57
+\nofMPsegments=\count315
+\nofMParguments=\count316
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count317
+\MPscratchDim=\dimen190
+\MPnumerator=\count318
+\makeMPintoPDFobject=\count319
+\everyMPtoPDFconversion=\toks30
+)
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.s
+ty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
+<figures/Danmarks_Tekniske_Universitet_(logo).svg.png, id=1, 1927.2pt x 2811.50
+375pt>
+File: figures/Danmarks_Tekniske_Universitet_(logo).svg.png Graphic file (type p
+ng)
+<use figures/Danmarks_Tekniske_Universitet_(logo).svg.png>
+Package pdftex.def Info: figures/Danmarks_Tekniske_Universitet_(logo).svg.png  
+used on input line 57.
+(pdftex.def)             Requested size: 142.68329pt x 208.15099pt.
+<figures/TDC.svg.png, id=3, 1284.8pt x 1099.10625pt>
+File: figures/TDC.svg.png Graphic file (type png)
+<use figures/TDC.svg.png>
+Package pdftex.def Info: figures/TDC.svg.png  used on input line 61.
+(pdftex.def)             Requested size: 142.68329pt x 122.05925pt.
+ [1
+
+{/usr/local/texlive/2026basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./
+figures/Danmarks_Tekniske_Universitet_(logo).svg.png> <./figures/TDC.svg.png>] 
+(./main.toc)
+\tf@toc=\write3
+\openout3 = `main.toc'.
+
+ [1] (./introduction_3.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--17
+
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 18--82
+
+ []
+
+(./Theory.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+[2]
+<figures/Frequency_reuse.png, id=20, 250.9375pt x 202.7575pt>
+File: figures/Frequency_reuse.png Graphic file (type png)
+<use figures/Frequency_reuse.png>
+Package pdftex.def Info: figures/Frequency_reuse.png  used on input line 9.
+(pdftex.def)             Requested size: 452.9679pt x 366.03987pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
+
+ []
+
+[3 <./figures/Frequency_reuse.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
+
+ []
+
+<figures/ofdm.png, id=25, 663.47874pt x 241.90375pt>
+File: figures/ofdm.png Graphic file (type png)
+<use figures/ofdm.png>
+Package pdftex.def Info: figures/ofdm.png  used on input line 29.
+(pdftex.def)             Requested size: 452.9679pt x 165.15308pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
+<figures/qam_1_axis.png, id=26, 860.013pt x 218.61674pt>
+File: figures/qam_1_axis.png Graphic file (type png)
+<use figures/qam_1_axis.png>
+Package pdftex.def Info: figures/qam_1_axis.png  used on input line 52.
+(pdftex.def)             Requested size: 452.9679pt x 115.14577pt.
+[4 <./figures/ofdm.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
+
+ []
+
+<figures/ber_plot_1.png, id=32, 641.7576pt x 425.6703pt>
+File: figures/ber_plot_1.png Graphic file (type png)
+<use figures/ber_plot_1.png>
+Package pdftex.def Info: figures/ber_plot_1.png  used on input line 75.
+(pdftex.def)             Requested size: 452.9679pt x 300.44833pt.
+[5 <./figures/qam_1_axis.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+
+ []
+
+<figures/prb_grid.jpg, id=40, 240.47363pt x 196.34416pt>
+File: figures/prb_grid.jpg Graphic file (type jpg)
+<use figures/prb_grid.jpg>
+Package pdftex.def Info: figures/prb_grid.jpg  used on input line 90.
+(pdftex.def)             Requested size: 452.9679pt x 369.84909pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
+
+ []
+
+[6 <./figures/ber_plot_1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
+
+ []
+
+[7 <./figures/prb_grid.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--129
+
+ []
+
+<figures/prb_utilization.png, id=49, 506.39188pt x 365.86688pt>
+File: figures/prb_utilization.png Graphic file (type png)
+<use figures/prb_utilization.png>
+Package pdftex.def Info: figures/prb_utilization.png  used on input line 132.
+(pdftex.def)             Requested size: 452.9679pt x 327.27296pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
+
+ []
+
+[8 <./figures/prb_utilization.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--150
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 156--157
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
+
+ []
+
+[10]) (./dataset.tex
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/9_tower_time_feature_daily_max.png, id=60, 1077.18436pt x 714.38895pt>
+
+File: figures/9_tower_time_feature_daily_max.png Graphic file (type png)
+<use figures/9_tower_time_feature_daily_max.png>
+Package pdftex.def Info: figures/9_tower_time_feature_daily_max.png  used on in
+put line 55.
+(pdftex.def)             Requested size: 452.9679pt x 300.41193pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
+
+ []
+
+<figures/avg_hourly_per_site.png, id=61, 626.5809pt x 394.95555pt>
+File: figures/avg_hourly_per_site.png Graphic file (type png)
+<use figures/avg_hourly_per_site.png>
+Package pdftex.def Info: figures/avg_hourly_per_site.png  used on input line 67
+.
+(pdftex.def)             Requested size: 452.9679pt x 285.52486pt.
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
+
+ []
+
+[12 <./figures/avg_hourly_per_site.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
+
+ []
+
+[13 <./figures/9_tower_time_feature_daily_max.png>]
+<figures/correlation_matrix.png, id=74, 794.2473pt x 724.1454pt>
+File: figures/correlation_matrix.png Graphic file (type png)
+<use figures/correlation_matrix.png>
+Package pdftex.def Info: figures/correlation_matrix.png  used on input line 87.
+
+(pdftex.def)             Requested size: 452.9679pt x 412.9992pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
+
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 98--90
+
+ []
+
+[14 <./figures/correlation_matrix.png>] (./preprocessing.tex
+<figures/cell_data_length.png, id=79, 426.393pt x 280.76895pt>
+File: figures/cell_data_length.png Graphic file (type png)
+<use figures/cell_data_length.png>
+Package pdftex.def Info: figures/cell_data_length.png  used on input line 5.
+(pdftex.def)             Requested size: 452.9679pt x 298.2777pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
+
+ []
+
+[15 <./figures/cell_data_length.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 48--92
+
+ []
+
+(./classification.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--2
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+[16]
+<figures/box_plot_holiday_avg_site.png, id=87, 418.80466pt x 328.46715pt>
+File: figures/box_plot_holiday_avg_site.png Graphic file (type png)
+<use figures/box_plot_holiday_avg_site.png>
+Package pdftex.def Info: figures/box_plot_holiday_avg_site.png  used on input l
+ine 12.
+(pdftex.def)             Requested size: 452.9679pt x 355.27551pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+
+ []
+
+[17 <./figures/box_plot_holiday_avg_site.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+
+ []
+
+<figures/t_test_all_cells.png, id=92, 1076.823pt x 497.9403pt>
+File: figures/t_test_all_cells.png Graphic file (type png)
+<use figures/t_test_all_cells.png>
+Package pdftex.def Info: figures/t_test_all_cells.png  used on input line 42.
+(pdftex.def)             Requested size: 452.9679pt x 209.4602pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
+
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 49--97
+
+ []
+
+(./forecasting.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--2
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+[19 <./figures/t_test_all_cells.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+
+ []
+
+(./arima.tex
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
+
+ []
+
+<figures/arima_seasonal_pre_order.png, id=105, 715.11165pt x 353.76164pt>
+File: figures/arima_seasonal_pre_order.png Graphic file (type png)
+<use figures/arima_seasonal_pre_order.png>
+Package pdftex.def Info: figures/arima_seasonal_pre_order.png  used on input li
+ne 39.
+(pdftex.def)             Requested size: 366.899pt x 181.50642pt.
+<figures/arima_non_seasonal_pre_order.png, id=106, 715.11165pt x 353.76164pt>
+File: figures/arima_non_seasonal_pre_order.png Graphic file (type png)
+<use figures/arima_non_seasonal_pre_order.png>
+Package pdftex.def Info: figures/arima_non_seasonal_pre_order.png  used on inpu
+t line 48.
+(pdftex.def)             Requested size: 366.899pt x 181.50642pt.
+<figures/arima_global_pre_order.png, id=107, 715.11165pt x 353.76164pt>
+File: figures/arima_global_pre_order.png Graphic file (type png)
+<use figures/arima_global_pre_order.png>
+Package pdftex.def Info: figures/arima_global_pre_order.png  used on input line
+ 55.
+(pdftex.def)             Requested size: 366.899pt x 181.50642pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+ []
+
+
+Overfull \hbox (35.49228pt too wide) in paragraph at lines 66--67
+[]\OT1/cmr/m/n/12 For the sea-sonal set-ting, the most fre-quently se-lected co
+n-fig-u-ra-tion was ARIMA$(1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 1\OML/cmm/m/it/1
+2 ; \OT1/cmr/m/n/12 1)(0\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 ; 
+\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 7)$.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
+
+ []
+
+[21] [22 <./figures/arima_seasonal_pre_order.png> <./figures/arima_non_seasonal
+_pre_order.png> <./figures/arima_global_pre_order.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+
+ []
+
+[24]
+<figures/arima_post_seasonal_order_2.png, id=127, 715.473pt x 353.76164pt>
+File: figures/arima_post_seasonal_order_2.png Graphic file (type png)
+<use figures/arima_post_seasonal_order_2.png>
+Package pdftex.def Info: figures/arima_post_seasonal_order_2.png  used on input
+ line 167.
+(pdftex.def)             Requested size: 366.899pt x 181.40927pt.
+<figures/arima_post_non_seasonal_order_2.png, id=128, 715.473pt x 353.76164pt>
+File: figures/arima_post_non_seasonal_order_2.png Graphic file (type png)
+<use figures/arima_post_non_seasonal_order_2.png>
+Package pdftex.def Info: figures/arima_post_non_seasonal_order_2.png  used on i
+nput line 176.
+(pdftex.def)             Requested size: 366.899pt x 181.40927pt.
+<figures/arima_global_post_order.png, id=129, 715.473pt x 353.76164pt>
+File: figures/arima_global_post_order.png Graphic file (type png)
+<use figures/arima_global_post_order.png>
+Package pdftex.def Info: figures/arima_global_post_order.png  used on input lin
+e 183.
+(pdftex.def)             Requested size: 366.899pt x 181.40927pt.
+<figures/arima_seasonal_pred.png, id=130, 715.11165pt x 353.03896pt>
+File: figures/arima_seasonal_pred.png Graphic file (type png)
+<use figures/arima_seasonal_pred.png>
+Package pdftex.def Info: figures/arima_seasonal_pred.png  used on input line 23
+1.
+(pdftex.def)             Requested size: 452.9679pt x 223.62778pt.
+<figures/arima_non_seasonal_pred.png, id=131, 715.473pt x 353.03896pt>
+File: figures/arima_non_seasonal_pred.png Graphic file (type png)
+<use figures/arima_non_seasonal_pred.png>
+Package pdftex.def Info: figures/arima_non_seasonal_pred.png  used on input lin
+e 239.
+(pdftex.def)             Requested size: 452.9679pt x 223.50926pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./OLS.tex
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
+
+ []
+
+[25] [26 <./figures/arima_post_seasonal_order_2.png> <./figures/arima_post_non_
+seasonal_order_2.png> <./figures/arima_global_post_order.png>])) (./main.bbl
+Underfull \hbox (badness 3668) in paragraph at lines 33--38
+[]\OT1/cmr/m/n/12 3GPP.  3gpp ts 38.214.  Tech-ni-cal re-port, 3rd Gen-er-a-tio
+n Part-ner-ship
+ []
+
+[27]) [28] [29 <./figures/arima_seasonal_pred.png> <./figures/arima_non_seasona
+l_pred.png>] (./main.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 5327 strings out of 469006
+ 91061 string characters out of 5454813
+ 497546 words of memory out of 5000000
+ 33946 multiletter control sequences out of 15000+600000
+ 636870 words of font info for 71 fonts, out of 8000000 for 9000
+ 319 hyphenation exceptions out of 8191
+ 67i,10n,77p,1051b,688s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </Users/thomaspedersen/Library/texlive/2026basic/texmf-var/fonts/pk/ljfour/j
+knappen/ec/tcrm1200.600pk></usr/local/texlive/2026basic/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026basic/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026basic/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026basic/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2026basic/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026basic/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026bas
+ic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2026
+basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/20
+26basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
+2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
+ive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/t
+exlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/loc
+al/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (30 pages, 2938925 bytes).
+PDF statistics:
+ 219 PDF objects out of 1000 (max. 8388607)
+ 114 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 111 words of extra memory for PDF output out of 10000 (max. 10000000)
+
