@@ -1,0 +1,14 @@
+
+This thesis investigated whether pre-classifying mobile network cells based on traffic behaviour can improve forecasting performance. A statistical classification method was developed using a t-test on holiday and non-holiday traffic differences, separating cells into seasonal and non-seasonal groups. Forecasting models including ARIMA/SARIMAX, OLS, and XGBoost were then evaluated on these groups. \\
+
+The classification results show clear structure across geographic site types. Urban cells are consistently classified as non-seasonal (52/52), while recreational and suburban cells show more mixed behaviour. Overall, 88 out of 91 cells in urban and recreational categories align with their expected classification based on geographic structure. This indicates that the method captures meaningful patterns in traffic behaviour without using location information directly. \\
+
+In the forecasting task, all model-based approaches significantly outperform naive baselines, with error reductions of approximately 60–80\%. Best-performing models achieve RMSE values in the range of 1.45–1.70 across all datasets. This confirms that the dataset contains strong temporal structure that can be learned using statistical and machine learning methods. \\
+
+Among all models, OLS achieves the lowest error in both seasonal and non-seasonal settings, with RMSE values of 1.45 and 1.60 respectively. This slightly outperforms ARIMA/SARIMAX (1.66 for seasonal and 1.71 for non-seasonal) and XGBoost (1.70 across both groups). This suggests that linear relationships between engineered features, particularly lagged values and rolling statistics, capture most of the predictive signal. Increasing model complexity does not lead to consistent improvements. \\
+
+The impact of dataset segmentation is limited. Training separate models for seasonal and non-seasonal cells results in only marginal improvements compared to a global model. This indicates that most of the predictive power is already contained in the engineered features rather than in dataset partitioning. \\
+
+Overall, the results show that a simple pipeline combining statistical classification and linear forecasting models is sufficient to achieve strong performance in this setting. Feature engineering plays a more important role than model complexity or segmentation. \\
+
+Future work could explore spatial dependencies between neighbouring cells, or alternative unsupervised approaches for identifying traffic regimes without relying on predefined statistical tests. \\

@@ -14,17 +14,22 @@
 \contentsline {section}{\numberline {4}Network Site Classification}{16}{}%
 \contentsline {subsection}{\numberline {4.1}T-test Validation}{18}{}%
 \contentsline {section}{\numberline {5}Traffic Forecasting}{19}{}%
-\contentsline {subsection}{\numberline {5.1}Baseline Models}{19}{}%
-\contentsline {subsection}{\numberline {5.2}ARIMA}{20}{}%
+\contentsline {subsection}{\numberline {5.1}Baseline Models}{20}{}%
+\contentsline {subsection}{\numberline {5.2}ARIMA}{21}{}%
 \contentsline {subsubsection}{SARIMAX}{21}{}%
 \contentsline {subsubsection}{Model Optimization}{21}{}%
-\contentsline {subsubsection}{baseline ARIMA configuration}{21}{}%
-\contentsline {subsubsection}{Feature selection}{23}{}%
-\contentsline {subsubsection}{Post Feature Selection Orders}{25}{}%
-\contentsline {subsection}{\numberline {5.3}comparison}{25}{}%
-\contentsline {subsection}{\numberline {5.4}Ordinary Least Squares}{25}{}%
-\contentsline {subsubsection}{Feature selection}{26}{}%
-\contentsline {subsubsection}{results}{26}{}%
-\contentsline {subsection}{\numberline {5.5}XGboost}{26}{}%
-\contentsline {section}{\numberline {6}Results and Discussion}{26}{}%
-\contentsline {section}{\numberline {7}Conclusion}{26}{}%
+\contentsline {subsubsection}{baseline ARIMA configuration}{22}{}%
+\contentsline {subsubsection}{Feature selection}{22}{}%
+\contentsline {subsubsection}{Post feature selection order refinement}{25}{}%
+\contentsline {subsection}{\numberline {5.3}Ordinary Least Squares}{27}{}%
+\contentsline {subsubsection}{Feature selection}{28}{}%
+\contentsline {subsection}{\numberline {5.4}XGboost}{29}{}%
+\contentsline {subsubsection}{Decision tree}{29}{}%
+\contentsline {subsubsection}{Implementation}{30}{}%
+\contentsline {subsubsection}{XG Boost Results}{30}{}%
+\contentsline {section}{\numberline {6}Results and Discussion}{33}{}%
+\contentsline {subsection}{\numberline {6.1}Seasonal classification results}{33}{}%
+\contentsline {subsection}{\numberline {6.2}Overall Model Comparison}{33}{}%
+\contentsline {subsection}{\numberline {6.3}Impact of Preprocessing and Feature Engineering}{34}{}%
+\contentsline {subsection}{\numberline {6.4}Summary of Findings}{35}{}%
+\contentsline {section}{\numberline {7}Conclusion}{35}{}%

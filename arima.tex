@@ -25,7 +25,9 @@ The proposed evaluation procedure consisted of three stages:
     
     \item Second, forward feature selection was applied to the exogenous variables using the fixed baseline ARIMA order.
         
-    \item Finally, after selecting the optimal feature subset, the ARIMA coefficients and model parameters were re-estimated using the selected exogenous variables to obtain the final SARIMAX model.
+    \item Finally, after selecting the optimal feature subset, the ARIMA coefficients and
+    model parameters were re-estimated using the selected exogenous variables to obtain
+    the final SARIMAX model
 \end{enumerate}
 
 
@@ -145,9 +147,9 @@ The forward selection procedure is applied separately to three model configurati
 \toprule
 \textbf{Model Type} & \textbf{Selected Features (final step)} & \textbf{RMSE} \\
 \midrule
-Seasonal cells & roll\_mean\_7, roll\_max\_7 & 1.66 \\
-Non-seasonal cells & roll\_min\_7, lag\_1, lag\_diff\_1\_7 & 1.54 \\
-All cells & roll\_min\_7, lag\_1, lag\_diff\_1\_7 & 1.54 \\
+Seasonal cells & roll\_mean\_7, roll\_max\_7 & 1.62 \\
+Non-seasonal cells & roll\_min\_7, lag\_1, is\_weekend & 1.71 \\
+All cells & roll\_min\_7, lag\_1, lag\_diff\_1\_7 & 1.66 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -157,63 +159,73 @@ Feature selection results show strong overlap between the non-seasonal and all-c
 Across all configurations, performance improvements are primarily driven by short-term dependency features (lag-1 and lag-difference), suggesting that recent history dominates predictive power. Seasonal structure contributes less to overall error reduction, indicating weak or inconsistent periodicity across most cells. \\
 
 
-\subsubsection{Post Feature Selection Orders}
+\subsubsection{Post feature selection order refinement}
 
-The resulting performance was:
+After feature selection, the top ARIMA orders identified during the baseline stage were re-evaluated using the selected exogenous variables. Each configuration was refitted and tested on the held-out dataset, and performance was compared to the feature-selection baseline.
 
-(1, 1, 1) (0, 0, 0, 7) -> 1.6286740698148208
-(0, 1, 2) (0, 0, 0, 7) -> 1.6421207574332402
-(2, 1, 1) (1, 0, 1, 7) -> 1.8821604312943678
-(2, 1, 1) (0, 0, 0, 7) -> 1.836335315622857
-(1, 1, 2) (1, 0, 1, 7) -> 1.7244589444923621
-
-Based on these results, the best-performing configuration for seasonal cells was:
-\[
-(1,0,0)(0,0,0,7)
-\]
-with a final RMSE of 1.5291.
-
-
-\textbf{Non-seasonal cells}
-
-(0, 1, 1) (0, 0, 0, 7) -> 1.5406868111115992
-(1, 0, 0) (0, 0, 0, 7) -> 1.499995505912129
-(0, 0, 0) (0, 0, 1, 7) -> 1.5238978829181384
-(0, 0, 2) (0, 0, 0, 7) -> 1.6096546642404328
-(1, 0, 0) (1, 0, 0, 7) -> 1.5356852778076302
-
-
-\subsection{comparison}
-
-
-
-
-
-\begin{figure}[h]
-    \centering
-
-    \begin{subfigure}{\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/arima_seasonal_pred.png}
-        \caption{ARIMA forecasting seasonal cell}
-        \label{fig:arima_seasonal_pred}
-    \end{subfigure}
-
-
-    \begin{subfigure}{\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/arima_non_seasonal_pred.png}
-        \caption{ARIMA forecasting non-seasonal cell}
-        \label{fig:arima_non_seasonal_pred}
-    \end{subfigure}
-
-    \caption{Average data volume across cells for two towers}
-    \label{fig:arima_forecasting_cell}
+\begin{figure}[H]
+	\centering
+	
+	\begin{subfigure}[b]{0.9\linewidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{figures/arima_post_seasonal_order_2.png}
+		\caption{ARIMA order frequency for seasonal cells}
+		\label{fig:arima_seasonal_post_order}
+	\end{subfigure}
+	
+	\vspace{0.5cm}
+	
+	\begin{subfigure}[b]{0.9\linewidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{figures/arima_non_seasonal_pre_order_2.png}
+		\caption{ARIMA order frequency for non-seasonal cells}
+		\label{fig:arima_non_seasonal_post_order}
+	\end{subfigure}
+	
+	\begin{subfigure}[b]{0.9\linewidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{figures/arima_global_post_order.png}
+		\caption{ARIMA order frequency for all cells}
+		\label{fig:arima_global_post_order}
+	\end{subfigure}
+	
+	\caption{ARIMA order selection after feature engineering}
+	\label{fig:arima_post_orders}
 \end{figure}
 
+The results show only limited changes after feature selection. For seasonal cells, a slightly different configuration ARIMA$(0,0,1)(0,0,0,7)$ achieved the best performance with an RMSE of 1.51. For non-seasonal cells and all cells, the original configuration ARIMA$(0,1,1)(0,0,0,7)$ remained optimal.
 
-%\subsection{Arima Summary}
+\begin{table}[htbp]
+	\centering
+	\caption{Post feature selection ARIMA performance comparison}
+	\label{tab:arima_post_results}
+	
+	\begin{tabular}{lcc}
+		\toprule
+		\textbf{Model Type} & \textbf{Best Order} & \textbf{RMSE} \\
+		\midrule
+		Seasonal cells & $(0,0,1)(0,0,0,7)$ & 1.5139 \\
+		Non-seasonal cells & $(0,1,1)(0,0,0,7)$ & 1.7102 \\
+		All cells (global) & $(0,1,1)(0,0,0,7)$t & 1.6600 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
-%Across both seasonal and non-seasonal configurations, the results show that different types of temporal structure contribute to forecasting performance in different ways. This supports the idea that mobile network traffic is not generated by a single consistent process, but instead contains multiple patterns depending on cell behavior.
+Overall, the results suggest that both feature engineering and model order selection contribute to forecasting performance. Feature selection provides the main improvement, while re-tuning the ARIMA order after feature selection yields only marginal additional gains. \\
 
-%The findings also indicate that separating cells by their dominant traffic characteristics can help reduce heterogeneity within each group. This makes the forecasting problem more stable and supports the overall hypothesis that pre-classification can improve model performance compared to a single global approach.
+For seasonal cells, a small but consistent improvement is observed after adjusting the ARIMA order, reducing the RMSE from the feature-selection baseline. For non-seasonal and global models, changes in ARIMA order do not lead to meaningful improvements. \\
+
+This indicates that exogenous features carry most of the predictive signal, while ARIMA order tuning provides secondary refinement in certain cases rather than large performance shifts. \\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{figures/arima_pred.png}
+	\caption{Seasonal Arima Fitting and Prediction on R1 2F}
+	\label{fig:arima_prediction}
+\end{figure}
+
+To better understand model behaviour, Figure~\ref{fig:arima_prediction} shows the fitted values on the training data and the predictions on the held-out test set for a representative cell (R1, 2F). \\
+
+
+
+

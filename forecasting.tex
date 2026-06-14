@@ -1,14 +1,16 @@
 This section builds on the classification results presented earlier. The motivation for classification is to better understand underlying traffic patterns before performing forecasting. By separating network sites into seasonal and non-seasonal groups, it becomes possible to evaluate whether different traffic dynamics require different forecasting strategies. \\
 
-\textbf{Mean Squared Error} \\
-Doing this analysis the different models will be evaluated using the Mean Squared Error (MSE) which is defined as:
+All forecasting models are evaluated using a chronological 80/20 train-test split. The first 80\% of each time series is used for training, while the final 20\% is reserved for testing. This split preserves temporal order and avoids information leakage from future observations. The test set is used as the common validation set across all models. \\
+
+\textbf{Root Mean Squared Error (RMSE)} \\
+Model performance is evaluated using the Root Mean Squared Error (RMSE), defined as:
 
 \begin{equation}
-    \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
-    \label{eq:mse}
+	\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
+	\label{eq:rmse}
 \end{equation}
 
-where $y_i$ is the observed value and $\hat{y}_i$ is the predicted value. MSE penalizes larger errors more heavily due to the squaring term, making it particularly sensitive to large deviations, which is desirable in a network planning context where significant underestimation of peak traffic can lead to network overload. \\
+where $y_i$ is the observed value and $\hat{y}_i$ is the predicted value. RMSE penalizes larger errors more heavily than absolute error due to the squaring term, while remaining in the same unit as the target variable. This makes it suitable for network traffic forecasting, where large underestimations of peak load can lead to capacity issues. \\
 
 \subsection{Baseline Models}
 
@@ -22,14 +24,14 @@ The forecasting target is the daily peak traffic volume, defined as the maximum 
 \centering
 \begin{tabular}{lccc}
 \hline
-\textbf{Model} & \textbf{All} & \textbf{Recreational} & \textbf{Urban} \\
+\textbf{Model} & \textbf{Seasonal} & \textbf{Non-Seasonal} & \textbf{All} \\
 \hline
-Seasonal Naive & 7.57 & 7.96 & 7.37 \\
-Mean Naive     &  4.62 & 3.98 & 4.91 \\
-Previous Naive & 3.56 & 3.57  & 5.01 \\
+Seasonal Naive & 2.36 & 2.58 & 2.51 \\
+Mean Naive     & 1.77 & 1.99 & 1.92 \\
+Previous Naive & 1.85 & 1.97  & 2.51 \\
 \hline
 \end{tabular}
-\caption{Mean Squared Error (MSE) for baseline forecasting models across different site categories}
+\caption{Root Mean Squared Error (RMSE) for baseline forecasting models across different site categories}
 \label{tab:baseline_models}
 \end{table}
 
@@ -47,6 +49,7 @@ It should be noted that MSE values are not directly comparable across dataset sp
 \input{OLS}
 
 \subsection{XGboost}
+\input{XGboost}
 
 
 

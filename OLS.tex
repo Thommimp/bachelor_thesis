@@ -34,7 +34,7 @@ At each iteration, an OLS model was fitted using the current selected feature se
 \begin{table}[htbp]
 	\centering
 	\caption{Feature selection results across seasonal, non-seasonal, and all-cell models}
-	\label{tab:feature_selection_all}
+	\label{tab:feature_selection_ols}
 	
 	\begin{tabular}{lcc}
 		\toprule
@@ -42,10 +42,11 @@ At each iteration, an OLS model was fitted using the current selected feature se
 		\midrule
 		Seasonal cells & roll\_mean\_7, lag1, roll\_mean\_14, roll\_std\_14, holiday & 1.45 \\	
 		Non-seasonal cells & roll\_mean\_14, lag1, roll\_std\_14, is\_weekend & 1.60 \\
-		All cells & roll\_min\_7, lag\_1, lag\_diff\_1\_7 & 1.54 \\
+		All cells & roll\_mean\_7, lag1, roll\_std\_7, roll\_mean\_14, is\_weekend  & 1.56 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
-\subsubsection{results}
-The results for the 3 data grops were as follows
+In addition to the cell-specific OLS models, a global OLS model trained on all cells was evaluated separately on seasonal and non-seasonal subsets to assess performance differences across groups.
+
+The global model achieved an RMSE of 1.47 on seasonal cells and 1.60 on non-seasonal cells.

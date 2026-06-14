@@ -44,6 +44,23 @@ The t-test is well suited to this problem for several reasons. First, the two gr
     \label{fig:t_test_all_cells}
 \end{figure}
 
-Figure \ref{fig:t_test_all_cells} shows the t-test results across all individual cells. A clear separation is observed, with the majority of cells belonging to recreational sites identified as seasonal, while urban cells are predominantly identified as non-seasonal. This alignment with the geographic site categories suggests that the method captures meaningful differences in traffic behavior without using geographic location as an input. \\
 
-The suburban sites present a more mixed case, as their traffic behavior does not conform as clearly to either category. Cells from suburban sites are distributed across both classes, reflecting the mixed nature of these environments. Because the method produces consistent results for both recreational and urban sites, it provides a useful basis for analysing suburban cells, where no clear ground truth classification exists. This highlights the value of a data driven approach over simple geographic labeling, as it can distinguish cases where location alone is not enough to determine traffic behavior. \\
+\begin{table}[h]
+	\centering
+	\begin{tabular}{c|cc}
+		& Seasonal & Non-seasonal \\
+		\hline
+		R (Recreational) & 3  & 36 \\
+		S (Suburban)     & 38 & 7  \\
+		U (Urban)        & 52 & 0  \\
+	\end{tabular}
+	\label{tab:seasonality_cells}
+\end{table}
+
+Figure \ref{fig:t_test_all_cells} shows the t-test results across all individual cells, and Table \ref{tab:seasonality_cells} summarizes the resulting classifications by site type. \\
+
+A strong separation is observed for urban and recreational sites. All 52 urban cells are classified as non-seasonal (0 seasonal, 52 non-seasonal), which aligns with the expectation that urban traffic is stable across holiday and non-holiday periods. Recreational sites show the opposite pattern, with 36 of 39 cells classified as non-seasonal and 3 classified as seasonal. \\
+
+The suburban category is more mixed. Out of 45 suburban cells, 38 are classified as seasonal and 7 as non-seasonal. This split reflects the heterogeneous nature of suburban areas, where traffic patterns are less consistent and likely influenced by multiple land-use types. \\
+
+Overall, the results indicate strong agreement between the method and expected behavior for urban and recreational areas, while suburban areas show mixed classifications. Across urban and recreational sites, 88 out of 91 cells are consistent with their expected class based on geographic category. All urban cells (52/52) are classified as non-seasonal, while recreational sites show 36 of 39 cells classified as non-seasonal. This level of agreement provides supporting evidence for the method, even in the absence of ground truth labels at the individual cell level, and highlights the value of a data driven approach that does not rely on geographic labels. \\

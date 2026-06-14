@@ -54,35 +54,70 @@
 \newlabel{fig:box_plot_holiday_avg_site}{{11}{17}{}{figure.11}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}T-test Validation}{18}{}\protected@file@percent }
 \newlabel{eq:ttest}{{2}{18}{}{equation.2}{}}
+\newlabel{tab:seasonality_cells}{{\caption@xref {tab:seasonality_cells}{ on input line 57}}{18}{}{figure.12}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces T-test holiday volume vs non-holiday volume for all individual cells}}{19}{}\protected@file@percent }
 \newlabel{fig:t_test_all_cells}{{12}{19}{}{figure.12}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Traffic Forecasting}{19}{}\protected@file@percent }
-\newlabel{eq:mse}{{3}{19}{}{equation.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Baseline Models}{19}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Mean Squared Error (MSE) for baseline forecasting models across different site categories}}{20}{}\protected@file@percent }
+\newlabel{eq:rmse}{{3}{20}{}{equation.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Baseline Models}{20}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Root Mean Squared Error (RMSE) for baseline forecasting models across different site categories}}{20}{}\protected@file@percent }
 \newlabel{tab:baseline_models}{{4}{20}{}{table.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}ARIMA}{20}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}ARIMA}{21}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{SARIMAX}{21}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{Model Optimization}{21}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{baseline ARIMA configuration}{21}{}\protected@file@percent }
-\newlabel{fig:arima_seasonal_pre_order}{{13a}{22}{}{subfigure.13.1}{}}
-\newlabel{sub@fig:arima_seasonal_pre_order}{{a}{22}{}{subfigure.13.1}{}}
-\newlabel{fig:arima_non_seasonal_pre_order}{{13b}{22}{}{subfigure.13.2}{}}
-\newlabel{sub@fig:arima_non_seasonal_pre_order}{{b}{22}{}{subfigure.13.2}{}}
-\newlabel{fig:arima_global_pre_order}{{13c}{22}{}{subfigure.13.3}{}}
-\newlabel{sub@fig:arima_global_pre_order}{{c}{22}{}{subfigure.13.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Arima order before feature selection}}{22}{}\protected@file@percent }
-\newlabel{fig:pre_order_arima}{{13}{22}{}{figure.13}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Feature selection}{23}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Candidate features evaluated during feature selection}}{23}{}\protected@file@percent }
-\newlabel{tab:tested_features}{{5}{23}{}{table.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{baseline ARIMA configuration}{22}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Feature selection}{22}{}\protected@file@percent }
+\newlabel{fig:arima_seasonal_pre_order}{{13a}{23}{}{subfigure.13.1}{}}
+\newlabel{sub@fig:arima_seasonal_pre_order}{{a}{23}{}{subfigure.13.1}{}}
+\newlabel{fig:arima_non_seasonal_pre_order}{{13b}{23}{}{subfigure.13.2}{}}
+\newlabel{sub@fig:arima_non_seasonal_pre_order}{{b}{23}{}{subfigure.13.2}{}}
+\newlabel{fig:arima_global_pre_order}{{13c}{23}{}{subfigure.13.3}{}}
+\newlabel{sub@fig:arima_global_pre_order}{{c}{23}{}{subfigure.13.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Arima order before feature selection}}{23}{}\protected@file@percent }
+\newlabel{fig:pre_order_arima}{{13}{23}{}{figure.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Candidate features evaluated during feature selection}}{24}{}\protected@file@percent }
+\newlabel{tab:tested_features}{{5}{24}{}{table.5}{}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Forward Feature Selection for ARIMA with Exogenous features}}{24}{}\protected@file@percent }
 \newlabel{alg:algo_1}{{1}{24}{}{ALC@unique.22}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Feature selection results across seasonal, non-seasonal, and all-cell models}}{24}{}\protected@file@percent }
-\newlabel{tab:feature_selection_all}{{6}{24}{}{table.6}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Post Feature Selection Orders}{25}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}comparison}{25}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Ordinary Least Squares}{25}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Feature selection results across seasonal, non-seasonal, and all-cell models}}{25}{}\protected@file@percent }
+\newlabel{tab:feature_selection_all}{{6}{25}{}{table.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Post feature selection order refinement}{25}{}\protected@file@percent }
+\newlabel{fig:arima_seasonal_post_order}{{14a}{26}{}{subfigure.14.1}{}}
+\newlabel{sub@fig:arima_seasonal_post_order}{{a}{26}{}{subfigure.14.1}{}}
+\newlabel{fig:arima_non_seasonal_post_order}{{14b}{26}{}{subfigure.14.2}{}}
+\newlabel{sub@fig:arima_non_seasonal_post_order}{{b}{26}{}{subfigure.14.2}{}}
+\newlabel{fig:arima_global_post_order}{{14c}{26}{}{subfigure.14.3}{}}
+\newlabel{sub@fig:arima_global_post_order}{{c}{26}{}{subfigure.14.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces ARIMA order selection after feature engineering}}{26}{}\protected@file@percent }
+\newlabel{fig:arima_post_orders}{{14}{26}{}{figure.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Post feature selection ARIMA performance comparison}}{27}{}\protected@file@percent }
+\newlabel{tab:arima_post_results}{{7}{27}{}{table.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Seasonal Arima Fitting and Prediction on R1 2F}}{27}{}\protected@file@percent }
+\newlabel{fig:arima_prediction}{{15}{27}{}{figure.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Ordinary Least Squares}{27}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Feature selection}{28}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Feature selection results across seasonal, non-seasonal, and all-cell models}}{28}{}\protected@file@percent }
+\newlabel{tab:feature_selection_ols}{{8}{28}{}{table.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}XGboost}{29}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Decision tree}{29}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Implementation}{30}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{XG Boost Results}{30}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces XG Boost feature importance}}{31}{}\protected@file@percent }
+\newlabel{fig:xg_feature_importance}{{16}{31}{}{figure.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces A single tree from XG model}}{32}{}\protected@file@percent }
+\newlabel{fig:xg_tree}{{17}{32}{}{figure.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Prediction vs Actual, xg boost on site R1 cell 2F}}{32}{}\protected@file@percent }
+\newlabel{fig:xg_boost_prediction}{{18}{32}{}{figure.18}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Results and Discussion}{33}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Seasonal classification results}{33}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Overall Model Comparison}{33}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Final model comparison across forecasting approaches}}{33}{}\protected@file@percent }
+\newlabel{tab:final_model_comparison}{{9}{33}{}{table.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Impact of Preprocessing and Feature Engineering}{34}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Effect of global vs group-specific ARIMA and OLS models}}{34}{}\protected@file@percent }
+\newlabel{tab:model_ablation}{{10}{34}{}{table.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Summary of Findings}{35}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{35}{}\protected@file@percent }
 \bibstyle{unsrtnat}
 \bibdata{references}
 \bibcite{120_degree_sectors}{{1}{}{{wikipedia contributers}}{{}}}
@@ -92,17 +127,4 @@
 \bibcite{3gpp_ts38214}{{5}{2026}{{3GPP}}{{}}}
 \bibcite{prb_grid}{{6}{2022}{{Blokdy}}{{}}}
 \bibcite{proportional-fair}{{7}{2011}{{Ahmadi}}{{}}}
-\@writefile{toc}{\contentsline {subsubsection}{Feature selection}{26}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Feature selection results across seasonal, non-seasonal, and all-cell models}}{26}{}\protected@file@percent }
-\newlabel{tab:feature_selection_all}{{7}{26}{}{table.7}{}}
-\@writefile{toc}{\contentsline {subsubsection}{results}{26}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}XGboost}{26}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Results and Discussion}{26}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{26}{}\protected@file@percent }
-\newlabel{fig:arima_seasonal_pred}{{14a}{28}{}{subfigure.14.1}{}}
-\newlabel{sub@fig:arima_seasonal_pred}{{a}{28}{}{subfigure.14.1}{}}
-\newlabel{fig:arima_non_seasonal_pred}{{14b}{28}{}{subfigure.14.2}{}}
-\newlabel{sub@fig:arima_non_seasonal_pred}{{b}{28}{}{subfigure.14.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Average data volume across cells for two towers}}{28}{}\protected@file@percent }
-\newlabel{fig:arima_forecasting_cell}{{14}{28}{}{figure.14}{}}
-\gdef \@abspage@last{29}
+\gdef \@abspage@last{37}

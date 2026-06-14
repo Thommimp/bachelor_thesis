@@ -1,0 +1,91 @@
+This section presents the results of the seasonal classification and forecasting models. First, classification results are summarized. Then forecasting performance is compared across all models. Finally, the impact of feature engineering and dataset splitting is evaluated.
+
+\subsection{Seasonal classification results}
+
+The seasonal labels used in the forecasting analysis are derived from the t-test based classification described in Section X. The method separates cells based on statistically significant differences between holiday and non-holiday traffic volumes. \\
+
+This classification is used to split the dataset into seasonal and non-seasonal groups for the forecasting experiments.
+Overall, the method produces a clear separation between site types and is used as the basis for the downstream modelling analysis. \\
+
+\subsection{Overall Model Comparison}
+
+Table~\ref{tab:final_model_comparison} summarises the performance of all forecasting approaches across seasonal, non-seasonal, and combined datasets. The results provide a complete comparison between naive baselines, statistical models, and machine learning approaches, allowing an assessment of both feature engineering and model complexity.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Final model comparison across forecasting approaches}
+	\label{tab:final_model_comparison}
+	
+	\begin{tabular}{lccc}
+		\toprule
+		\textbf{Model} & \textbf{Seasonal} & \textbf{Non-seasonal} & \textbf{All cells} \\
+		\midrule
+		Seasonal Naive & 7.37 & 7.96 & 7.57 \\
+		Mean Naive & 4.91 & 3.98 & 4.62 \\
+		Previous Value Naive & 5.01 & 3.57 & 3.56 \\
+		ARIMA/SARIMAX & 1.66 & 1.71 & 1.66 \\
+		OLS & 1.45 & 1.60 & 1.56 \\
+		XGBoost & 1.70 & 1.70 & 1.70 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+A clear pattern emerges when comparing naive and model-based approaches. All statistical and machine learning models substantially outperform the naive baselines, reducing error from values above 3.5–7.9 down to approximately 1.4–1.7. This represents a reduction of roughly 60–80\% in prediction error depending on the baseline, confirming that the dataset contains strong and learnable temporal structure. \\
+
+Among the model-based approaches, OLS achieves the lowest overall error, particularly for seasonal cells where it reaches an RMSE of 1.45. This suggests that much of the predictive signal can be captured using linear combinations of engineered features, particularly lagged values and rolling statistics. The strong performance of OLS indicates that the relationship between features and target is largely linear once appropriate feature engineering is applied. \\
+
+ARIMA/SARIMAX performs competitively but does not consistently outperform OLS. The differences between the two methods are small (typically within 0.1–0.2 RMSE), suggesting that explicit time-series modelling does not provide a large advantage over feature-based regression in this setting. Instead, ARIMA primarily offers a more structured and interpretable formulation of similar dependencies captured implicitly by lag features in OLS. \\
+
+XGBoost does not improve upon the best statistical models, achieving approximately 1.70 RMSE across all datasets. Despite its ability to model non-linear interactions, this does not translate into improved accuracy. This indicates that non-linear effects are either weak or already sufficiently represented through engineered features such as rolling statistics and calendar variables. \\
+
+Overall, the comparison highlights that feature engineering is the dominant factor in predictive performance. Once lag-based and rolling features are included, increasing model complexity provides diminishing returns. \\
+
+\subsection{Impact of Preprocessing and Feature Engineering}
+
+To further investigate the role of preprocessing choices, an ablation study was conducted comparing global models trained on all cells with models trained on group-specific subsets (seasonal and non-seasonal). This allows evaluation of whether dataset segmentation provides additional predictive benefit beyond feature engineering alone. \\
+
+Table~\ref{tab:model_ablation} summarises the results.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Effect of global vs group-specific ARIMA and OLS models}
+	\label{tab:model_ablation}
+	
+	\begin{tabular}{lcc|cc}
+		\toprule
+		& \multicolumn{2}{c|}{\textbf{ARIMA}} & \multicolumn{2}{c}{\textbf{OLS}} \\
+		\textbf{Training Strategy} 
+		& \textbf{Seasonal} 
+		& \textbf{Non-seasonal} 
+		& \textbf{Seasonal} 
+		& \textbf{Non-seasonal} \\
+		\midrule
+		Global model 
+		& 1.53 & 1.72 & 1.47 & 1.60 \\
+		
+		Seasonal-specific model 
+		& 1.51 & N/A & 1.45 & N/A \\
+		
+		Non-seasonal-specific model 
+		& N/A & 1.71 & N/A & 1.60 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+The results show that dataset segmentation has only a limited impact on performance. For ARIMA, a small improvement is observed for seasonal cells, where RMSE decreases from 1.53 to 1.51 (approximately 1.3\%). For non-seasonal cells, the difference between global and specialised models is negligible (1.72 vs 1.71), corresponding to an improvement of around 0.6\%. \\
+
+For OLS, no improvement is observed when using group-specific training. The RMSE remains unchanged for both seasonal (1.47) and non-seasonal (1.60) settings, indicating that model performance is insensitive to dataset partitioning in this case. \\
+
+The lack of improvement for non-seasonal cells can be explained by the imbalance in the dataset, where non-seasonal cells represent approximately 69\% of all samples (96 vs 43 seasonal cells). As a result, the global model is dominated by non-seasonal behaviour and already closely approximates this subgroup, reducing the benefit of training a separate model. \\
+
+\subsection{Summary of Findings}
+
+Across all experiments, three main findings emerge.
+
+First, all statistical and machine learning models significantly outperform naive baselines, confirming that the dataset contains strong and learnable temporal structure.
+
+Second, OLS performs as well as or better than more complex models, indicating that linear relationships with well-designed features are sufficient to capture most of the signal.
+
+Third, splitting the dataset into seasonal and non-seasonal groups provides only marginal improvements, suggesting that global models combined with feature engineering are already highly effective.
+
+Overall, these results indicate that while segmentation can provide small gains in specific cases (notably seasonal ARIMA), the majority of predictive performance is already achieved through global modelling combined with feature engineering. The added complexity of maintaining separate pipelines yields only marginal improvements. \\
