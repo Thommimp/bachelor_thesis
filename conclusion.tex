@@ -1,14 +1,89 @@
+This thesis investigated whether pre-classifying mobile network 
+cells based on traffic behaviour can improve forecasting performance. 
+A statistical classification method was developed using a t-test 
+on holiday and non-holiday traffic differences, separating cells 
+into seasonal and non-seasonal groups. Forecasting models including 
+ARIMA/SARIMAX, OLS, and XGBoost were then evaluated on these groups. \\
 
-This thesis investigated whether pre-classifying mobile network cells based on traffic behaviour can improve forecasting performance. A statistical classification method was developed using a t-test on holiday and non-holiday traffic differences, separating cells into seasonal and non-seasonal groups. Forecasting models including ARIMA/SARIMAX, OLS, and XGBoost were then evaluated on these groups. \\
+The classification results show clear structure across geographic 
+site types. Urban cells are consistently classified as non-seasonal 
+(52/52), while recreational and suburban cells show more mixed 
+behaviour. Overall, 88 out of 91 cells in urban and recreational 
+categories align with their expected classification based on 
+geographic structure. Importantly, this separation was achieved 
+purely from traffic behaviour, without using geographical location 
+as an input, demonstrating that the method captures meaningful 
+patterns in a data-driven and location-agnostic manner. \\
 
-The classification results show clear structure across geographic site types. Urban cells are consistently classified as non-seasonal (52/52), while recreational and suburban cells show more mixed behaviour. Overall, 88 out of 91 cells in urban and recreational categories align with their expected classification based on geographic structure. This indicates that the method captures meaningful patterns in traffic behaviour without using location information directly. \\
+It should be noted that this study used geographical location 
+as a proxy for ground truth when evaluating the classification 
+results. However, geographic category does not necessarily 
+determine traffic behaviour, and the two may diverge in 
+practice. A clear example is R3, which despite being geographically 
+labeled as a recreational site, shows low holiday sensitivity 
+similar to urban cells (Figure~\ref{fig:box_plot_holiday_avg_site}). 
+Conversely, U3, despite being geographically labeled as urban, 
+exhibits a daily activity pattern closer to those of recreational 
+cells (Figure~\ref{fig:avg_hourly_per_site}), with low daytime activity and a pronounced evening peak. This suggests that the 
+data-driven classification captures underlying traffic 
+behaviour more faithfully than geographic labels alone, 
+and that relying solely on location-based grouping may 
+introduce misclassification. In the absence of true 
+ground truth labels at the cell level, the agreement 
+between the classification and geographic categories 
+should therefore be interpreted as supporting evidence 
+rather than definitive validation. \\
 
-In the forecasting task, all model-based approaches significantly outperform naive baselines, with error reductions of approximately 60–80\%. Best-performing models achieve RMSE values in the range of 1.45–1.70 across all datasets. This confirms that the dataset contains strong temporal structure that can be learned using statistical and machine learning methods. \\
+In the forecasting task, all model-based approaches significantly 
+outperform naive baselines, with error reductions of approximately 
+20--30\% compared to the best naive model. Best-performing models 
+achieve RMSE values in the range of 1.45--1.70 across all datasets, 
+compared to naive baseline RMSE values of 1.77--2.58. This confirms 
+that the dataset contains strong temporal structure that can be 
+learned using statistical and machine learning methods. \\
 
-Among all models, OLS achieves the lowest error in both seasonal and non-seasonal settings, with RMSE values of 1.45 and 1.60 respectively. This slightly outperforms ARIMA/SARIMAX (1.66 for seasonal and 1.71 for non-seasonal) and XGBoost (1.70 across both groups). This suggests that linear relationships between engineered features, particularly lagged values and rolling statistics, capture most of the predictive signal. Increasing model complexity does not lead to consistent improvements. \\
+Among all models, OLS and XGBoost achieve comparable performance 
+overall, while ARIMA/SARIMAX is consistently the weakest. Paired 
+statistical testing across cells confirms that ARIMA performs 
+significantly worse than both OLS and XGBoost in every dataset 
+split. The relationship between OLS and XGBoost depends on the 
+subgroup: the two models are statistically indistinguishable on 
+seasonal cells (RMSE of 1.45 and 1.46 respectively), while XGBoost 
+holds a small but statistically significant advantage over OLS on 
+non-seasonal cells (1.56 vs 1.60) and across all cells combined 
+(1.53 vs 1.56). Although this advantage is statistically significant, 
+the absolute difference remains small, and OLS achieves this 
+performance using a simple, interpretable linear model rather than 
+an ensemble of decision trees. This suggests that while a complex, 
+non-linear model such as XGBoost can extract a modest additional 
+benefit from pooling data across cells, a well-engineered linear 
+model captures nearly all of the same predictive signal while 
+remaining considerably more explainable and easier to deploy and 
+maintain in practice. Overall, this indicates that strong feature 
+engineering, particularly lagged values and rolling statistics, 
+captures most of the predictive signal regardless of model choice, 
+and that the added complexity of a model like XGBoost is only 
+weakly justified by the resulting gains in this setting. \\
 
-The impact of dataset segmentation is limited. Training separate models for seasonal and non-seasonal cells results in only marginal improvements compared to a global model. This indicates that most of the predictive power is already contained in the engineered features rather than in dataset partitioning. \\
+The impact of dataset segmentation is limited. Training separate 
+models for seasonal and non-seasonal cells in the statistical models only results in marginal 
+improvements compared to a global model, and only for the seasonal 
+subset, which represents the smaller minority group. When a subgroup 
+is already well represented in the global training data, as is the 
+case for non-seasonal cells at 69\% of all samples, group-specific 
+training provides little to no additional benefit. This suggests 
+that pre-classification is most valuable when a meaningful class 
+imbalance exists, which does not appear to be the case in this 
+dataset. \\
 
-Overall, the results show that a simple pipeline combining statistical classification and linear forecasting models is sufficient to achieve strong performance in this setting. Feature engineering plays a more important role than model complexity or segmentation. \\
+Overall, the results show that a simple pipeline combining 
+statistical classification and feature-driven forecasting models, 
+whether linear or tree-based, is sufficient to achieve strong 
+performance in this setting. Feature engineering plays a more 
+important role than model complexity or segmentation of the data, although 
+model choice still produces small, statistically significant 
+differences depending on the seasonality of the subgroup. \\
 
-Future work could explore spatial dependencies between neighbouring cells, or alternative unsupervised approaches for identifying traffic regimes without relying on predefined statistical tests. \\
+Future work could explore spatial dependencies between neighbouring 
+cells, or alternative unsupervised approaches for identifying 
+traffic regimes without relying on predefined statistical tests. \\

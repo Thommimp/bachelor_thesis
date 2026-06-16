@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{13}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -15,11 +15,13 @@ wikipedia contributers.
 Wahome.
 \newblock The cellular concept: Handoffs.
 \newblock \emph{Medium}, 2023.
-\newblock URL \url{https://kwahome.medium.com/the-cellular-concept-handoffs-fc8e09a4f037}.
+\newblock URL
+  \url{https://kwahome.medium.com/the-cellular-concept-handoffs-fc8e09a4f037}.
 
 \bibitem[CHANG(1966)]{ofdm_paper}
 ROBERT~W. CHANG.
-\newblock Synthesis of band-limited orthogonal signals for multichannel data transmission.
+\newblock Synthesis of band-limited orthogonal signals for multichannel data
+  transmission.
 \newblock \emph{IEEE}, 1966.
 
 \bibitem[{Ericsson}(2019)]{ericsson5gnr}
@@ -31,7 +33,8 @@ ROBERT~W. CHANG.
 {3GPP}.
 \newblock 3gpp ts 38.214.
 \newblock Technical report, 3rd Generation Partnership Project, 2026.
-\newblock URL \url{https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3216}.
+\newblock URL
+  \url{https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3216}.
 
 \bibitem[Blokdy(2022)]{prb_grid}
 Gerardus Blokdy.
@@ -40,8 +43,39 @@ Gerardus Blokdy.
 
 \bibitem[Ahmadi(2011)]{proportional-fair}
 Sassan Ahmadi.
-\newblock \emph{The IEEE 802.16m Medium, Access Control Common, Part Sub-layer (Part I)}.
+\newblock \emph{The IEEE 802.16m Medium, Access Control Common, Part Sub-layer
+  (Part I)}.
 \newblock sciencedirect, 2011.
-\newblock URL \url{https://www.sciencedirect.com/topics/computer-science/proportional-fair-scheduler}.
+\newblock URL
+  \url{https://www.sciencedirect.com/topics/computer-science/proportional-fair-scheduler}.
+
+\bibitem[cop()]{copenhagen_school_holidays}
+Copenhagen school holidays.
+\newblock URL \url{https://publicholidays.dk/school-holidays/copenhagen/}.
+
+\bibitem[Brockhoff(2025)]{intro_to_stats}
+Per~B. Brockhoff.
+\newblock \emph{Introduction to Statistics at DTU}.
+\newblock DTU, 2025.
+
+\bibitem[Hyndman and Athanasopoulos(2018)]{forecasting_book}
+Rob~J Hyndman and George Athanasopoulos.
+\newblock \emph{Forecasting: Principles and Practice}.
+\newblock Monash University, Australia, 2018.
+
+\bibitem[HIROTUGUAI(AIKE(1974)]{AIC_paper}
+HIROTUGUAI(AIKE.
+\newblock A new look at the statistical model identification.
+\newblock \emph{IEEE}, 1974.
+
+\bibitem[Herlau(2023)]{intro_to_ML}
+Tue Herlau.
+\newblock \emph{Introduction to Machine Learning and Data Mining}.
+\newblock DTU, 2023.
+
+\bibitem[Chen(2016)]{XG_paper}
+Tianqi Chen.
+\newblock Xgboost: A scalable tree boosting system.
+\newblock 2016.
 
 \end{thebibliography}

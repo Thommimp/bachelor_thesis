@@ -1,4 +1,4 @@
-Ordinary Least Squares (OLS) is a linear regression method that estimates parameters by minimizing the sum of squared errors between observed values and predictions.
+Ordinary Least Squares (OLS) is a linear regression method that estimates parameters by minimizing the sum of squared errors between observed values and predictions \cite{forecasting_book}.
 
 In the simplest case with one feature, OLS fits a line of the form:
 \[
@@ -23,7 +23,7 @@ or in matrix form:
 
 Here, $\mathbf{X}$ is the feature matrix, $\boldsymbol{\beta}$ is the vector of learned coefficients, and $\boldsymbol{\epsilon}$ is the error term. \\
 
-Each feature contributes additively to the prediction through its own weight, along with a single shared intercept. This allows OLS to incorporate engineered inputs such as lagged values, rolling statistics, or external variables, but it does not explicitly model time dynamics.
+Each feature contributes additively to the prediction through its own weight, along with a single shared intercept. This allows OLS to incorporate engineered features such as lagged values, rolling statistics, or external variables. 
 
 \subsubsection{Feature selection}
 
@@ -47,6 +47,25 @@ At each iteration, an OLS model was fitted using the current selected feature se
 	\end{tabular}
 \end{table}
 
-In addition to the cell-specific OLS models, a global OLS model trained on all cells was evaluated separately on seasonal and non-seasonal subsets to assess performance differences across groups.
+Compared to the ARIMA feature selection results, OLS selects a 
+larger feature set across all configurations, incorporating 
+additional rolling statistics and calendar variables such as 
+\texttt{holiday} and \texttt{is\_weekend}. Despite treating 
+observations as independent, OLS achieves lower RMSE than 
+ARIMA/SARIMAX across all groups (1.45 vs 1.51 for seasonal 
+cells, 1.60 vs 1.71 for non-seasonal cells), suggesting that 
+the additional features compensate for the lack of explicit 
+time-series modelling. This indicates that when sufficiently 
+rich features are provided, a simple linear model can match 
+or outperform more complex temporal models. \\
 
-The global model achieved an RMSE of 1.47 on seasonal cells and 1.60 on non-seasonal cells.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{figures/OLS_prediction.png}
+	\caption{OLS forecasting on site R1 cell 2F}
+	\label{fig:OLS_prediction}
+\end{figure}
+
+To better understand model behaviour, Figure~\ref{fig:OLS_prediction} 
+shows the OLS predictions on the cell used in the ARIMA evaluation (R1, 2F).
+

@@ -9,14 +9,14 @@ The model is defined by three parameters: $p$, $d$, and $q$.
 
 A seasonal extension $(P, D, Q, m)$ can also be included, where $m$ represents the number of time steps in one seasonal cycle. This allows the model to capture repeating patterns that occur every $m$ periods. \\
 
-The optimal parameters are selected by minimizing the Akaike Information Criterion (AIC), which balances model fit and complexity. \\
+The optimal parameters are selected by minimizing the Akaike Information Criterion (AIC), which balances model fit and complexity. \cite{AIC_paper} \\
 
 \subsubsection{SARIMAX}
 SARIMAX is an extension of the ARIMA model. The \textit{S} represents the seasonal component introduced previously, while the \textit{X} indicates the inclusion of exogenous input features. Unlike ARIMA, which only models the historical behavior of the time series itself, SARIMAX can additionally incorporate external variables that may influence the forecasting.
 
 \subsubsection{Model Optimization}
 
-The following method was used to validate the ARIMA forecasting approach on the dataset. As described earlier, the data consists of two groups seasonal and non-seasonal. For each individual cell time series, the auto ARIMA function [Put python documentaration link here]  was applied to determine the parameter set that minimizes the AIC. The most frequently selected order across all cells was then chosen as the representative seasonal and non-seasonal configuration. \\
+The following method was used to validate the ARIMA forecasting approach on the dataset. As described earlier, the data consists of two groups seasonal and non-seasonal. For each individual cell time series, the auto ARIMA function \cite{forecasting_book} was applied to determine the parameter set that minimizes the AIC. The most frequently selected order across all cells was then chosen as the representative seasonal and non-seasonal configuration. \\
 
 The proposed evaluation procedure consisted of three stages:
 
@@ -100,7 +100,7 @@ lag\_diff\_1\_7 & Difference between lag-1 and lag-7 \\
 \end{tabular}
 \end{table}
 
-To evaluate the impact of exogenous variables on forecasting performance, a forward feature selection approach is applied. The method starts with an empty feature set and iteratively adds the feature that yields the largest reduction in average test mean squared error (MSE) across all time series. Candidate features include calendar variables, lag-based features, rolling statistics, and differenced features. The process continues until no further improvement is observed, as shown in Algorithm \ref{alg:algo_1}.\\
+To evaluate the impact of exogenous variables on forecasting performance, a forward feature selection approach is applied \cite{intro_to_ML}. The method starts with an empty feature set and iteratively adds the feature that yields the largest reduction in average test root mean squared error (RMSE) across all time series. Candidate features include calendar variables, lag-based features, rolling statistics, and differenced features. The process continues until no further improvement is observed, as shown in Algorithm \ref{alg:algo_1}.\\
 
 \begin{algorithm}[H]\caption{Forward Feature Selection for ARIMA with Exogenous features}
 \begin{algorithmic}[1]
@@ -154,9 +154,15 @@ All cells & roll\_min\_7, lag\_1, lag\_diff\_1\_7 & 1.66 \\
 \end{tabular}
 \end{table}
 
-Feature selection results show strong overlap between the non-seasonal and all-cell configurations, which converge to the same optimal feature set. In contrast, seasonal cells rely more on short-term aggregated statistics such as rolling means and maxima, while non-seasonal cells benefit from lag-based and difference features that capture local temporal changes. \\
-
-Across all configurations, performance improvements are primarily driven by short-term dependency features (lag-1 and lag-difference), suggesting that recent history dominates predictive power. Seasonal structure contributes less to overall error reduction, indicating weak or inconsistent periodicity across most cells. \\
+Table~\ref{tab:feature_selection_all} shows the results from the forward 
+feature selection. A strong overlap exists between the non-seasonal and all-cell 
+configurations, both selecting \texttt{roll\_min\_7} and \texttt{lag\_1} as the 
+most predictive features. The non-seasonal configuration additionally benefits 
+from the \texttt{is\_weekend} indicator, which is consistent with the commuter 
+driven daily patterns observed in urban cells, where weekday and weekend traffic 
+differ systematically. Seasonal cells, by contrast, rely more on short-term 
+aggregated statistics such as rolling means and maxima, suggesting that recent 
+traffic levels are more informative than specific calendar effects. \\
 
 
 \subsubsection{Post feature selection order refinement}
@@ -206,7 +212,7 @@ The results show only limited changes after feature selection. For seasonal cell
 		\midrule
 		Seasonal cells & $(0,0,1)(0,0,0,7)$ & 1.5139 \\
 		Non-seasonal cells & $(0,1,1)(0,0,0,7)$ & 1.7102 \\
-		All cells (global) & $(0,1,1)(0,0,0,7)$t & 1.6600 \\
+		All cells (global) & $(0,1,1)(0,0,0,7)$ & 1.6600 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -219,8 +225,8 @@ This indicates that exogenous features carry most of the predictive signal, whil
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\linewidth]{figures/arima_pred.png}
-	\caption{Seasonal Arima Fitting and Prediction on R1 2F}
+	\includegraphics[width=\linewidth]{figures/arima_seasonal_pred.png}
+	\caption{SARIMAX Forecasting on R1 2F}
 	\label{fig:arima_prediction}
 \end{figure}
 

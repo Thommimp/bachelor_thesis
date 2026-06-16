@@ -2,7 +2,7 @@ Several approaches can be used for classifying time series data. Unsupervised le
 
 In this study, the objective is to separate cells into two classes, seasonal and non-seasonal. Given the binary nature of the problem and the need for interpretability, a simple and explainable approach is preferred over more complex clustering methods. \\
 
-To identify a simple and interpretable seasonal indicator, a binary feature based on public school holiday schedules in Copenhagen [reference] was constructed. Each time series was labeled as either occurring during a holiday period or a non-holiday period. \\
+To identify a simple and interpretable seasonal indicator, a binary feature based on public school holiday schedules in Copenhagen \cite{copenhagen_school_holidays} was constructed. Each time series was labeled as either occurring during a holiday period or a non-holiday period. \\
 
 For each cell, the traffic data was divided into two groups corresponding to holiday and non-holiday periods. The average traffic volume was then computed for both groups. To obtain an overall overview at the site level, the average values across all cells within each site were visualized using boxplots, as shown in Figure \ref{fig:box_plot_holiday_avg_site}. \\
 
@@ -14,7 +14,7 @@ For each cell, the traffic data was divided into two groups corresponding to hol
     \label{fig:box_plot_holiday_avg_site}
 \end{figure}
 
-Figure \ref{fig:box_plot_holiday_avg_site} shows differences in standardized traffic levels between holiday and non-holiday periods across site categories.
+Figure \ref{fig:box_plot_holiday_avg_site} shows differences in standardized traffic levels between holiday and non-holiday periods across site categories \cite{intro_to_stats}.
 
 Recreational sites (R1--R4) show a consistent positive shift in standardized traffic during holiday periods. The mean difference between holiday and non-holiday periods ranges from $0.04$ to $0.58$ standard deviations. The strongest effects are observed at R4 ($\Delta = 0.582$) and R2 ($\Delta = 0.547$), followed by R1 ($\Delta = 0.442$). R3 shows only a weak shift ($\Delta = 0.051$), indicating a much smaller seasonal response compared to the other recreational sites. \\
 
@@ -35,7 +35,21 @@ The t-statistic is defined as:
 
 where $\bar{x}_1$ and $\bar{x}_2$ are the sample means, $s_1^2$ and $s_2^2$ are the sample variances, and $n_1$ and $n_2$ are the number of observations in the holiday and non-holiday groups. \\
 
-The t-test is well suited to this problem for several reasons. First, the two groups, holiday and non-holiday periods, are naturally defined and non-overlapping. Second, the test provides a statistical measure of whether the difference in mean traffic between the two groups is likely to occur by chance. Based on this, a simple decision rule is introduced, cells with statistically significant differences in mean traffic ($p < 0.05$) are labeled as seasonal, while the remaining cells are labeled as non-seasonal. This produces an interpretable and reproducible classification criterion without requiring manual threshold tuning. \\
+The t-test is not used here as a classifier in the traditional sense, 
+but rather as a statistical decision rule. The underlying hypothesis 
+is that cells with seasonal traffic patterns will respond differently 
+to holiday periods than non-seasonal cells. The two groups are 
+naturally defined and non-overlapping, and the test provides a 
+transparent statistical measure of whether the observed difference 
+in mean traffic is likely to occur by chance. Cells with statistically 
+significant differences ($p < 0.05$) are labeled as seasonal, while 
+the remaining cells are labeled as non-seasonal. This produces an 
+interpretable and reproducible classification criterion without 
+requiring manual threshold tuning. It should be noted that hourly 
+observations are autocorrelated, which may inflate the statistical 
+confidence of the test. However, given that the resulting 
+classifications show 96.7\% agreement with the expected geographic 
+categories, this is unlikely to affect the outcome much. \\
 
 \begin{figure}[h]
     \centering
@@ -47,20 +61,23 @@ The t-test is well suited to this problem for several reasons. First, the two gr
 
 \begin{table}[h]
 	\centering
+	\caption{Seasonal vs non-seasonal counts by site type}
+	\label{tab:seasonality_cells}
 	\begin{tabular}{c|cc}
 		& Seasonal & Non-seasonal \\
 		\hline
-		R (Recreational) & 3  & 36 \\
-		S (Suburban)     & 38 & 7  \\
-		U (Urban)        & 52 & 0  \\
+		Recreational (R) & 36  & 3 \\
+		Suburban (S)     & 7 & 38  \\
+		Urban (U)        & 0 & 52  \\
 	\end{tabular}
-	\label{tab:seasonality_cells}
 \end{table}
 
-Figure \ref{fig:t_test_all_cells} shows the t-test results across all individual cells, and Table \ref{tab:seasonality_cells} summarizes the resulting classifications by site type. \\
+Figure \ref{fig:t_test_all_cells} shows the t-test results across all individual cells, and Table \ref{tab:seasonality_cells} summarizes the resulting classifications by site type.
 
 A strong separation is observed for urban and recreational sites. All 52 urban cells are classified as non-seasonal (0 seasonal, 52 non-seasonal), which aligns with the expectation that urban traffic is stable across holiday and non-holiday periods. Recreational sites show the opposite pattern, with 36 of 39 cells classified as non-seasonal and 3 classified as seasonal. \\
 
 The suburban category is more mixed. Out of 45 suburban cells, 38 are classified as seasonal and 7 as non-seasonal. This split reflects the heterogeneous nature of suburban areas, where traffic patterns are less consistent and likely influenced by multiple land-use types. \\
 
 Overall, the results indicate strong agreement between the method and expected behavior for urban and recreational areas, while suburban areas show mixed classifications. Across urban and recreational sites, 88 out of 91 cells are consistent with their expected class based on geographic category. All urban cells (52/52) are classified as non-seasonal, while recreational sites show 36 of 39 cells classified as non-seasonal. This level of agreement provides supporting evidence for the method, even in the absence of ground truth labels at the individual cell level, and highlights the value of a data driven approach that does not rely on geographic labels. \\
+
+Given the strong separation achieved by this simple method, the focus of the remaining work shifts to evaluating whether this classification actually improves forecasting performance, rather than exploring more complex classification alternatives such as k-means clustering, dynamic time warping similarity, or supervised classification methods. \\

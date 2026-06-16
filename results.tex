@@ -1,15 +1,13 @@
-This section presents the results of the seasonal classification and forecasting models. First, classification results are summarized. Then forecasting performance is compared across all models. Finally, the impact of feature engineering and dataset splitting is evaluated.
+This section presents the results of the forecasting models. 
+First, forecasting performance is compared across all models. 
+Then the impact of feature engineering and dataset splitting 
+is evaluated. \\
 
-\subsection{Seasonal classification results}
+\subsection{Model Comparison}
 
-The seasonal labels used in the forecasting analysis are derived from the t-test based classification described in Section X. The method separates cells based on statistically significant differences between holiday and non-holiday traffic volumes. \\
+To ensure a fair comparison across all modelling approaches, RMSE is computed individually for each cell and the average RMSE is then taken across all cells within a given group. This applies consistently to the naive baselines, ARIMA/SARIMAX, OLS, and XGBoost, ensuring that no model is favoured by aggregating residuals differently or allowing high-traffic cells to disproportionately dominate the metric. \\
 
-This classification is used to split the dataset into seasonal and non-seasonal groups for the forecasting experiments.
-Overall, the method produces a clear separation between site types and is used as the basis for the downstream modelling analysis. \\
-
-\subsection{Overall Model Comparison}
-
-Table~\ref{tab:final_model_comparison} summarises the performance of all forecasting approaches across seasonal, non-seasonal, and combined datasets. The results provide a complete comparison between naive baselines, statistical models, and machine learning approaches, allowing an assessment of both feature engineering and model complexity.
+Table~\ref{tab:final_model_comparison} summarises the performance of all forecasting approaches across seasonal, non-seasonal, and combined datasets. The results provide a complete comparison between naive baselines, statistical models, and machine learning approaches, allowing an assessment of both feature engineering and model complexity. \\
 
 \begin{table}[htbp]
 	\centering
@@ -20,27 +18,65 @@ Table~\ref{tab:final_model_comparison} summarises the performance of all forecas
 		\toprule
 		\textbf{Model} & \textbf{Seasonal} & \textbf{Non-seasonal} & \textbf{All cells} \\
 		\midrule
-		Seasonal Naive & 7.37 & 7.96 & 7.57 \\
-		Mean Naive & 4.91 & 3.98 & 4.62 \\
-		Previous Value Naive & 5.01 & 3.57 & 3.56 \\
-		ARIMA/SARIMAX & 1.66 & 1.71 & 1.66 \\
+		Seasonal Naive & 2.36 & 2.58 & 2.51 \\
+		Mean Naive & 1.77 & 1.99 & 1.92 \\
+		Previous Value Naive & 1.85 & 1-97 & 2.51 \\
+		ARIMA/SARIMAX & 1.51 & 1.71 & 1.66 \\
 		OLS & 1.45 & 1.60 & 1.56 \\
-		XGBoost & 1.70 & 1.70 & 1.70 \\
+		XGBoost & 1.46 & 1.56 & 1.53 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
-A clear pattern emerges when comparing naive and model-based approaches. All statistical and machine learning models substantially outperform the naive baselines, reducing error from values above 3.5–7.9 down to approximately 1.4–1.7. This represents a reduction of roughly 60–80\% in prediction error depending on the baseline, confirming that the dataset contains strong and learnable temporal structure. \\
+A clear pattern emerges when comparing the naive baseline methods with the more advanced forecasting models. All model-based approaches outperform the baseline methods across seasonal, non-seasonal, and combined datasets. While the best baseline models achieve RMSE values between approximately 1.8 and 2.6, the statistical and machine learning models reduce this to roughly 1.4–1.7, demonstrating that the dataset contains substantial and predictable temporal structure. \\
+A more nuanced picture emerges once XGBoost is compared against the per-cell statistical models. XGBoost achieves the lowest RMSE among all models for non-seasonal cells (1.56) and across all cells combined (1.53), and performs comparably to OLS on seasonal cells (1.46 vs 1.45). \\
+Among the model-based approaches, OLS remains highly competitive and achieves the best result on seasonal cells (1.45), narrowly ahead of XGBoost (1.46) and meaningfully ahead of ARIMA (1.51). For non-seasonal and all-cell settings, XGBoost achieves a lower RMSE than both per-cell alternatives. \\
+ARIMA/SARIMAX consistently performs worst among the model-based approaches, with RMSE values of 1.51, 1.71, and 1.66 for seasonal, non-seasonal, and all cells respectively. \\
+Overall, the comparison indicates that feature engineering is a major driver of predictive performance across all models, while the relative ranking between OLS and XGBoost depends on the dataset split. The following section formally tests whether these observed differences are statistically significant. \\
+\subsection{Statistical Significance of Model Differences}
 
-Among the model-based approaches, OLS achieves the lowest overall error, particularly for seasonal cells where it reaches an RMSE of 1.45. This suggests that much of the predictive signal can be captured using linear combinations of engineered features, particularly lagged values and rolling statistics. The strong performance of OLS indicates that the relationship between features and target is largely linear once appropriate feature engineering is applied. \\
+To assess whether observed differences in RMSE are statistically meaningful, paired t-tests were conducted on the per-cell RMSE values, treating each cell as one paired observation across seasonal, non-seasonal, and all cells. In addition, bootstrap confidence intervals were computed for the mean difference in RMSE. \\
+Table~\ref{tab:stat_results} summarises the results for seasonal cells.
 
-ARIMA/SARIMAX performs competitively but does not consistently outperform OLS. The differences between the two methods are small (typically within 0.1–0.2 RMSE), suggesting that explicit time-series modelling does not provide a large advantage over feature-based regression in this setting. Instead, ARIMA primarily offers a more structured and interpretable formulation of similar dependencies captured implicitly by lag features in OLS. \\
+\begin{table}[htbp]
+	\centering
+	\caption{Statistical comparison of forecasting models across dataset splits}
+	\label{tab:stat_results}
+	\begin{tabular}{lcccc}
+		\toprule
+		\textbf{Comparison} & \textbf{Mean diff} & \textbf{95\% CI} & \textbf{t-value} & \textbf{p-value} \\
+		\midrule
+		
+		\multicolumn{4}{l}{\textit{Seasonal cells}} \\
+		ARIMA - OLS      & 0.062 & [0.029, 0.098] & 3.49 & 0.0011 \\
+		XGBoost - OLS    & 0.008 & [-0.018, 0.029] & 0.81 & 0.4200 \\
+		XGBoost - ARIMA  & -0.053 & [-0.08, -0.027] & 3.91 & 0.0003 \\
+		
+		\midrule
+		\multicolumn{4}{l}{\textit{Non-seasonal cells}} \\
+		ARIMA - OLS      & 0.107 & [0.066, 0.153] & 4.62& 0.000013 \\
+		XGBoost - OLS    & -0.040 & [-0.059, -0.021] & 4.07 & 0.000099 \\
+		XGBoost - ARIMA  & -0.148 & [-0.197, -0.101] & 5.88 & 0.000001 \\
+		
+		\midrule
+		\multicolumn{4}{l}{\textit{All cells}} \\
+		ARIMA - OLS & 0.104 & [0.070, 0.142] & 5.76 & $< 0.001$ \\
+		XGBoost - OLS & -0.025 & [-0.040, -0.010] & 3.34 & 0.0011 \\
+		XGBoost - ARIMA & -0.129 & [-0.169, -0.093] & 6.73 & $< 0.001$ \\
+		
+		\bottomrule
+	\end{tabular}
+\end{table}
 
-XGBoost does not improve upon the best statistical models, achieving approximately 1.70 RMSE across all datasets. Despite its ability to model non-linear interactions, this does not translate into improved accuracy. This indicates that non-linear effects are either weak or already sufficiently represented through engineered features such as rolling statistics and calendar variables. \\
+The seasonal subset is the only split where the ranking from Table~\ref{tab:final_model_comparison} does not hold up statistically. While OLS (1.45) and XGBoost (1.46) appeared nearly identical, the test confirms this: the confidence interval for their difference spans zero ([-0.018, 0.029], $p = 0.42$), so there is no evidence the two models differ at all on seasonal cells. ARIMA, by contrast, is significantly worse than both. Its gap with OLS (0.062, $p = 0.0011$) and with XGBoost (0.053, $p = 0.0003$) are both clearly bounded away from zero, confirming ARIMA's weaker performance on seasonal cells is a real effect rather than chance. \\
 
-Overall, the comparison highlights that feature engineering is the dominant factor in predictive performance. Once lag-based and rolling features are included, increasing model complexity provides diminishing returns. \\
+For non-seasonal cells, every comparison is significant, but the effect sizes differ considerably. ARIMA's gap with OLS is the largest seen anywhere in the table at 0.107 ($p < 0.001$), meaning ARIMA's underperformance is most pronounced precisely where seasonal cells showed it was already weak. XGBoost's advantage over OLS is smaller but still clearly significant at 0.040 ($p < 0.001$), with a confidence interval ([-0.059, -0.021]) that stays comfortably below zero, so unlike the seasonal case, this is a real, if modest, edge for XGBoost. Combined, ARIMA trails XGBoost by 0.148 ($p < 0.001$), the largest effect size in the entire table. \\
 
-\subsection{Impact of Preprocessing and Feature Engineering}
+The all-cells results mirror the non-seasonal pattern rather than the seasonal one, which makes sense given non-seasonal cells make up the majority of the dataset. XGBoost retains a significant edge over OLS (0.025, $p = 0.0011$), and both significantly outperform ARIMA. \\
+
+Overall, the testing changes the conclusion in one important way: the apparent OLS advantage on seasonal cells in Table~\ref{tab:final_model_comparison} is not statistically supported, OLS and XGBoost should be treated as equivalent there. Everywhere else, the gaps are real: ARIMA is reliably the weakest model in every split, and XGBoost holds a genuine, if small, edge over OLS specifically on non-seasonal and combined data. \\
+
+\subsection{Impact of seasonal pre classification}
 
 To further investigate the role of preprocessing choices, an ablation study was conducted comparing global models trained on all cells with models trained on group-specific subsets (seasonal and non-seasonal). This allows evaluation of whether dataset segmentation provides additional predictive benefit beyond feature engineering alone. \\
 
@@ -74,18 +110,40 @@ Table~\ref{tab:model_ablation} summarises the results.
 
 The results show that dataset segmentation has only a limited impact on performance. For ARIMA, a small improvement is observed for seasonal cells, where RMSE decreases from 1.53 to 1.51 (approximately 1.3\%). For non-seasonal cells, the difference between global and specialised models is negligible (1.72 vs 1.71), corresponding to an improvement of around 0.6\%. \\
 
-For OLS, no improvement is observed when using group-specific training. The RMSE remains unchanged for both seasonal (1.47) and non-seasonal (1.60) settings, indicating that model performance is insensitive to dataset partitioning in this case. \\
+For OLS, a small improvement is observed for seasonal cells, 
+ where RMSE decreases from 1.47 to 1.45 (approximately 1.4\%) 
+when using a group-specific model. For non-seasonal cells, 
+performance remains unchanged at 1.60, indicating that 
+partitioning provides no additional benefit for this group. \\
 
 The lack of improvement for non-seasonal cells can be explained by the imbalance in the dataset, where non-seasonal cells represent approximately 69\% of all samples (96 vs 43 seasonal cells). As a result, the global model is dominated by non-seasonal behaviour and already closely approximates this subgroup, reducing the benefit of training a separate model. \\
 
-\subsection{Summary of Findings}
+Across all experiments, three main findings emerge. \\
 
-Across all experiments, three main findings emerge.
+First, all statistical and machine learning models significantly 
+outperform naive baselines, confirming that the dataset contains 
+strong and learnable temporal structure. \\
 
-First, all statistical and machine learning models significantly outperform naive baselines, confirming that the dataset contains strong and learnable temporal structure.
+Second, OLS performs as well as or better than more complex models, 
+indicating that linear relationships with well-designed features 
+are sufficient to capture most of the signal. \\
 
-Second, OLS performs as well as or better than more complex models, indicating that linear relationships with well-designed features are sufficient to capture most of the signal.
+Third, splitting the dataset into seasonal and non-seasonal groups 
+provides only marginal improvements overall. However, the largest 
+gains are consistently observed for the seasonal subset, which 
+represents the smaller minority group (approximately 31\% of all 
+cells). This suggests that group-specific models are most beneficial 
+when the target subset is underrepresented in the global training 
+data, as the global model is otherwise dominated by the majority 
+class behaviour. For the non-seasonal subset, which already 
+represents 69\% of all samples, group-specific training provides 
+little to no additional benefit. \\
 
-Third, splitting the dataset into seasonal and non-seasonal groups provides only marginal improvements, suggesting that global models combined with feature engineering are already highly effective.
-
-Overall, these results indicate that while segmentation can provide small gains in specific cases (notably seasonal ARIMA), the majority of predictive performance is already achieved through global modelling combined with feature engineering. The added complexity of maintaining separate pipelines yields only marginal improvements. \\
+Overall, these results indicate that while segmentation can provide 
+small but consistent gains for minority groups, the majority of 
+predictive performance is already achieved through global modelling 
+combined with feature engineering. The added complexity of 
+maintaining separate pipelines is therefore only justified when 
+a meaningful class imbalance exists between seasonal and 
+non-seasonal cells, which does not appear to be the case in 
+this dataset. \\

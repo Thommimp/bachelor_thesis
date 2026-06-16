@@ -14,28 +14,28 @@ where $y_i$ is the observed value and $\hat{y}_i$ is the predicted value. RMSE p
 
 \subsection{Baseline Models}
 
-Before introducing more complex forecasting approaches, several baseline models are defined to provide reference performance levels. These baselines allow for a fair evaluation of whether more advanced methods provide meaningful improvements. \\
+Before introducing more complex forecasting approaches, several baseline models are defined to provide reference performance levels \cite{forecasting_book}.  These baselines allow for a fair evaluation of whether more advanced methods provide meaningful improvements. \\
 
 The dataset is evaluated under three settings, seasonal cells, non-seasonal cells, and a combined dataset. This enables analysis of whether traffic behavior differs across network environments. The cells were split into the different groups by the t-test as shown in figure \ref{eq:ttest}, if the p-value was below 0.05, there was not enough evidence that the cell was seasonal and it was put in the non-seasonal category.  \\
 
 The forecasting target is the daily peak traffic volume, defined as the maximum observed hourly traffic within a day as seen in figure \ref{fig:U1_vs_R1_daily_max}. This metric is particularly important for network planning, as it reflects peak load conditions that are critical for capacity management. \\
 
 \begin{table}[h]
-\centering
-\begin{tabular}{lccc}
-\hline
-\textbf{Model} & \textbf{Seasonal} & \textbf{Non-Seasonal} & \textbf{All} \\
-\hline
-Seasonal Naive & 2.36 & 2.58 & 2.51 \\
-Mean Naive     & 1.77 & 1.99 & 1.92 \\
-Previous Naive & 1.85 & 1.97  & 2.51 \\
-\hline
-\end{tabular}
-\caption{Root Mean Squared Error (RMSE) for baseline forecasting models across different site categories}
-\label{tab:baseline_models}
+	\centering
+	\begin{tabular}{lccc}
+		\hline
+		\textbf{Model} & \textbf{Seasonal RMSE} & \textbf{Non-Seasonal RMSE} & \textbf{Overall RMSE} \\
+		\hline
+		Seasonal Naive & 2.36 & 2.58 & 2.51 \\
+		Mean Naive     & 1.77 & 1.99 & 1.92 \\
+		Previous Naive & 1.85 & 1.97 & 2.51 \\
+		\hline
+	\end{tabular}
+	\caption{RMSE obtained by the baseline forecasting models using the 80/20 chronological train-test split. Lower values indicate better forecasting performance.}
+	\label{tab:baseline_models}
 \end{table}
 
-Table~\ref{tab:baseline_models} presents the baseline model results evaluated on the final two months of the dataset (January--March 2026). The seasonal naive model, which forecasts each period by repeating the corresponding values from the previous year, performs worst across all splits. This suggests that traffic patterns are not stable year over year. \\
+Table~\ref{tab:baseline_models} presents the baseline model results. The seasonal naive model, which forecasts each period by repeating the corresponding values from the previous year, performs worst across all splits. This suggests that traffic patterns are not stable year over year. \\
 
 The mean naive model forecasts using the training set mean, while the previous naive model uses the most recently observed value as the prediction. A notable pattern is seen when comparing the two across dataset splits, the mean model performs better on non-seasonal cells, while the previous value model performs better on seasonal cells. This is consistent with the underlying traffic patterns, non-seasonal cells shows relatively stable behavior over time, making the mean a reliable predictor, whereas seasonal cells are subject to gradual trends and periodic fluctuations, meaning recent observations carry more predictive information than the historical average. \\
 

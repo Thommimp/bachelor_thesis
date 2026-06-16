@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: unsrtnat.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+Name 1 in "HIROTUGUAI(AIKE," has a comma at the end for entry AIC_paper
+while executing---line 1233 of file unsrtnat.bst
+Warning--empty year in 120_degree_sectors
+Warning--empty year in 120_degree_sectors
+Warning--empty publisher in ericsson5gnr
+Warning--empty year in copenhagen_school_holidays
+Name 1 in "HIROTUGUAI(AIKE," has a comma at the end for entry AIC_paper
+while executing---line 1315 of file unsrtnat.bst
+Name 1 in "HIROTUGUAI(AIKE," has a comma at the end for entry AIC_paper
+while executing---line 1315 of file unsrtnat.bst
+Warning--empty journal in XG_paper
+You've used 13 entries,
+            2481 wiz_defined-function locations,
+            615 strings with 5780 characters,
+and the built_in function-call counts, 3423 in all, are:
+= -- 284
+> -- 92
+< -- 12
++ -- 52
+- -- 26
+* -- 164
+:= -- 557
+add.period$ -- 42
+call.type$ -- 13
+change.case$ -- 21
+chr.to.int$ -- 13
+cite$ -- 19
+duplicate$ -- 232
+empty$ -- 374
+format.name$ -- 40
+if$ -- 730
+int.to.chr$ -- 1
+int.to.str$ -- 14
+missing$ -- 17
+newline$ -- 76
+num.names$ -- 36
+pop$ -- 138
+preamble$ -- 1
+purify$ -- 13
+quote$ -- 0
+skip$ -- 137
+stack$ -- 0
+substring$ -- 27
+swap$ -- 24
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 73
+warning$ -- 5
+while$ -- 24
+width$ -- 0
+write$ -- 166
+(There were 3 error messages)

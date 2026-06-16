@@ -73,11 +73,21 @@ Figure \ref{fig:avg_hourly_per_site} shows the average hourly downlink data volu
 
 All site types reach their minimum traffic between 03:00 and 05:00, with urban cells (U1--U4) showing the lowest values, with z-scores around (-0.75 to -1). This suggests that urban cells experience the strongest night-time drop relative to their average level, reflecting a clear difference between peak and off-peak demand in densely populated areas.. \\
 
-Urban cells recover quickly from the overnight minimum, reaching a mid day peaking around 11:00-16:00 at z-scores of approximately 0.5-0.65, and declining again after 16. By contrast, suburban and recreational cells remain relatively flat during midday, hovering near their mean (z-score $\approx$ -0.1 -- 0.1) throughout the middle of the day. \\
+Urban cells (U1-U4) recover quickly from the overnight minimum, reaching a mid day peaking around 11:00-16:00 at z-scores of approximately 0.5-0.65, and declining again after 16. Recreational cells (R1-R4) follow a different daily cycle, remaining 
+relatively flat during midday near their mean (z-score $\approx$ 
+-0.1 -- 0.1), before steadily increasing toward an evening peak 
+around 20:00--21:00. Suburban cells (S1--S4) closely mirror this 
+recreational pattern, with low daytime activity and a steady 
+climb toward an evening peak, suggesting that both categories 
+are driven by similar leisure and residential usage behaviour 
+rather than the workplace and commuter patterns that dominate 
+urban cells. \\
 
-The most striking divergence occurs in the evening. Recreational and suburban cells reach their daily peak between 19:00 and 21:00, with several sites such as R1, S4, and U3 exceeding a z-score of 0.75. Urban cells also rise in the evening but peak slightly earlier, around 20:00, and at comparatively lower normalized levels. This represents an evening peak roughly 30--40\% higher in normalized terms than the midday plateau observed in urban cells, highlighting a fundamentally different daily usage cycle. \\
+The most striking divergence occurs in the evening. Recreational and suburban cells reach their daily peak between 19:00 and 21:00, with several sites such as R1, S4, and S1 exceeding a z-score of 0.75. Urban cells also rise in the evening but peak slightly earlier, around 20:00, and at comparatively lower normalized levels. This represents an evening peak roughly 30--40\% higher in normalized terms than the midday plateau observed in urban cells, highlighting a fundamentally different daily usage cycle. \\
 
-Notably, U3 and R2 deviate from the dominant patterns within their respective categories. U3 follows a pattern more similar to recreational sites, with low activity during the day and a pronounced evening peak around 20:00. In contrast, R2 shows higher activity earlier in the day, reaching its highest values around 11:00 before gradually declining throughout the afternoon and evening. \\
+Notably, U3 and R2 deviate from the dominant patterns within their respective categories. U3 follows a pattern more similar to recreational sites, with low activity during the day and a pronounced evening peak around 20:00. \\
+
+
 
 
 These results confirm that the timing of peak demand differs systematically by cell type. Urban cells follow a midday-dominated pattern consistent with workplace and commuter activity, while recreational and suburban cells follow an evening-dominated pattern more consistent with leisure usage. This distinction has direct implications for forecasting, as models trained on mixed cell types risk combining two structurally different daily cycles. \\
@@ -92,6 +102,8 @@ These results confirm that the timing of peak demand differs systematically by c
 Figure~\ref{fig:correlation_matrix} shows the correlation matrix of all continuous features in the dataset. Most features are positively correlated with each other. The main exception is user throughput (Mbps) negative correlations compared to the other features. \\
 
 This behavior is expected. When a cell has fewer active users, it can allocate more throughput per user, which can lead to higher throughput values per user when overall traffic is low. \\
+
+Data volume UL/DL and average PRB utilisation UL/DL are highly correlated at 0.86 for downlink and 0.79 for uplink. This is consistent with the theory presented in Section \ref{sec:resource_allocation}, more PRBs allocated generally means more data being transmitted. However, the correlation is not perfect, as poor radio conditions can force the scheduler to allocate more PRBs per unit of data, as illustrated in Figure \ref{fig:PRB_utilization}.
 
 In general, features within the same category show strong correlations, such as average and peak values of the same feature. Another strongly correlated feature is the relationship between PS data volume and average PRB utilization, where higher traffic volume leads to higher resource usage in the cell. \\
 
