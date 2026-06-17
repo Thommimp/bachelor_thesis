@@ -3,26 +3,26 @@ Unlike the statistical models presented in the previous sections, XGBoost (Extre
 A key practical distinction from the models presented earlier is that XGBoost is data-hungry. Cell-specific models, as applied in the ARIMA and OLS sections, operate on a single time series at a time and are therefore well suited to small, isolated datasets. XGBoost however benefits substantially from volume and diversity of training examples. For this reason, all cells across all sites are pooled into a single dataset, allowing the model to learn shared patterns across the entire network of cells simultaneously. \\
 
 \subsubsection{Decision tree}
-A decision tree makes predictions by repeatedly applying simple threshold rules to the input features. Each internal node in the tree checks a condition of the form “is feature $x_j \leq t$?”, which is equivalent to a sequence of nested if-else statements. Based on the result of each test, the observation is routed left or right down the tree. \\
+A decision tree makes predictions by repeatedly applying simple threshold rules to the input features. Each internal node in the tree checks a condition of the form “is feature $x_j \leq t$?” where x is a feature and t is a threshold, which is equivalent to a sequence of nested if-else statements. Based on the result of each test, the observation is routed left or right down the tree. \\
 
 This process continues until the observation reaches a terminal node (a leaf). Each leaf stores a fixed prediction value. The final model output is simply the value stored in the leaf where the observation ends up after following all the splits. \\
 
-Because of this structure, a decision tree does not learn a smooth function or a set of linear weights. Instead, it partitions the feature space into a set of rectangular regions, where all observations in the same region share the same predicted value. A single tree is therefore easy to interpret but can easily overfit if it becomes too deep. \\
+A decision tree does not learn a smooth function or a set of linear weights, but instead partitions the feature space into a set of rectangular regions, where all observations in the same region share the same predicted value. A single tree is therefore easy to interpret but can easily overfit if it becomes too deep. \\
 
-Random forests address this by training many trees independently on random subsets of the data and features, a technique known as bootstrapping, and averaging their predictions. This reduces variance and makes the model considerably more robust than any individual tree. \\
-
+XGBoost addresses this by combining many trees into an ensemble, but unlike approaches that train trees independently on bootstrapped subsets (e.g. random forests) and average their predictions, XGBoost builds trees sequentially. Each new tree is trained to correct the residual errors made by the previous ensemble, rather than being trained independently. The final prediction is the sum of all trees: \\
+ 
 XGBoost follows the same idea of combining many trees, but instead of training them independently, it builds them sequentially. Each new tree is trained to correct the errors made by the previous ensemble. The final prediction is the sum of all trees: 
 
 \[
 \hat{y}_i = \sum_{k=1}^{K} f_k(\mathbf{x}_i)
 \]
 
-This approach is known as gradient boosting, and XGBoost is a highly optimised implementation of it that has become one of the most widely used models in applied machine learning. \\
+This approach is known as gradient boosting, and XGBoost is a highly optimised implementation of it. \\
 
 \subsubsection{Implementation}
 Since XGBoost processes one observation at a time and has no built-in notion of time or sequential order, it cannot look back at past values the way ARIMA does. This makes feature engineering particularly important. All temporal context that the model needs to understand historical behaviour must be explicitly constructed and provided as input features. With this in mind, the feature set was designed to capture both temporal patterns and cell-specific characteristics, and can be grouped into the following categories. \\
 
-\textbf{Raw network metrics} were taken directly from the network performance management (PM) counters. These KPIs include downlink and uplink traffic volume, PRB utilisation, active user count, throughput, and SINR measurements. They represent the observed state of each cell at each time step and are used as direct inputs to the models.
+\textbf{Raw network metrics} were taken directly from the network performance management (PM) counters. These KPIs include downlink and uplink traffic volume, PRB utilisation, active user count, throughput, and SINR measurements. They represent the observed state of each cell at each time step and are used as direct inputs to the models. \\
 
 \textbf{Lag features} capture historical values of the target at fixed time offsets: 1, 8, 24, 168, and 720 hours back. These allow the model to condition its prediction on recent observations as well as patterns from the same hour yesterday, the same day last week, and the same period last month.
 \textbf{Rolling statistics} were computed across a wide range of windows: 3, 6, 12, 24, 48, 168, 336, 720, and 2160 hours. For each window, the mean, maximum, minimum, and standard deviation were included. This gives the model a rich view of both short-term fluctuations and long-term trends. \\
@@ -34,7 +34,7 @@ In total this results in \textbf{107 input features} per observation. \\
 
 \subsubsection{XG Boost Results}
 
-The model was trained with 200 trees, a learning rate of 0.05, and a maximum tree depth of 4. The data was split chronologically, with the first 80\% of observations used for training and the remaining 20\% reserved for testing. Table \ref{tab:xgb_results} summarizes the forecasting performance across the different dataset partitions. \\
+The model was trained with 200 trees, a learning rate of 0.05, and a maximum tree depth of 4. The data was split chronologically, with the first 80\% of observations used for training and the remaining 20\% reserved for testing. Table \ref{tab:xgb_results} summarizes the forecasting performance across the different dataset splits. \\
 
 \begin{table}[h]
 	\centering
@@ -51,6 +51,8 @@ The model was trained with 200 trees, a learning rate of 0.05, and a maximum tre
 	\end{tabular}
 \end{table}
 
+XGBoost achieves an RMSE of 1.46 on seasonal cells, 1.56 on non-seasonal cells, and 1.53 across all cells combined, despite being trained on all cells pooled together rather than per cell.\\
+ 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{figures/feature_importance_xg.png}
@@ -67,7 +69,7 @@ Figure~\ref{fig:xg_feature_importance} shows the feature importances assigned by
 	\label{fig:xg_tree}
 \end{figure}
 
-Figure~\ref{fig:xg_tree} visualises a single tree from the ensemble. At each internal node the tree makes a binary decision based on a threshold for a given feature, routing each observation either left or right until it reaches a leaf node where a prediction is made. With a maximum depth of 4, the tree can make at most 4 consecutive splits, resulting in up to 16 leaf nodes each outputting a distinct predicted value. It is worth noting that this is just one of the 200 trees that make up the final model, and on its own it is a very coarse approximation. \\
+Figure~\ref{fig:xg_tree} visualises a single tree from the ensemble. At each internal node the tree makes a binary decision based on a threshold for a given feature, routing each observation either left or right until it reaches a leaf node where a prediction is made. With a maximum depth of 4, the tree can make at most 4 consecutive splits, resulting in up to 16 leaf nodes each outputting a distinct predicted value.  \\
 
 The root node splits on \texttt{daily\_max}, by far the highest-gain split in the tree, and subsequent splits rely mainly on rolling mean and standard deviation features rather than calendar variables. While this is only one of 200 trees in the model, it is illustrative of the general pattern seen in the feature importance results \ref{fig:xg_feature_importance}, where recent traffic level dominate over calendar-based features. \\
 

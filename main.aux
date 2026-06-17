@@ -1,18 +1,18 @@
 \relax 
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}Theory}{2}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Cellular Network Architecture}{2}{}\protected@file@percent }
 \citation{120_degree_sectors}
-\citation{handoff}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Theory}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Cellular Network Architecture}{3}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Cellular network architecture showing base stations, user devices, and inter-cell connectivity.}}{3}{}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:network_archetecture}{{1}{3}{}{figure.1}{}}
+\citation{handoff}
 \citation{ofdm_paper}
-\citation{ericsson5gnr}
 \citation{ericsson5gnr}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Modulation and Signal Quality}{4}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces OFDM Sinc function alone vs with 5 subcariers}}{4}{}\protected@file@percent }
 \newlabel{fig:ofdm_sinc_function}{{2}{4}{}{figure.2}{}}
+\citation{ericsson5gnr}
 \citation{3gpp_ts38214}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Constellation diagrams for different modulation schemes, illustrating the increasing number of symbols and bits per symbol from QPSK to higher-order QAM.}}{5}{}\protected@file@percent }
 \newlabel{fig:QAM_constallation_diagram}{{3}{5}{}{figure.3}{}}
@@ -30,6 +30,7 @@
 \@writefile{toc}{\contentsline {subsubsection}{PRB Utilization}{8}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces PRB utilization vs Throughput}}{8}{}\protected@file@percent }
 \newlabel{fig:PRB_utilization}{{6}{8}{}{figure.6}{}}
+\citation{ericsson5gnr}
 \citation{ericsson5gnr}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Uplink and Downlink Traffic}{9}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Traffic Generation in Cellular Networks}{9}{}\protected@file@percent }
@@ -66,11 +67,11 @@
 \newlabel{eq:rmse}{{3}{20}{}{equation.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Baseline Models}{20}{}\protected@file@percent }
 \citation{AIC_paper}
+\citation{forecasting_book}
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces RMSE obtained by the baseline forecasting models using the 80/20 chronological train-test split. Lower values indicate better forecasting performance.}}{21}{}\protected@file@percent }
 \newlabel{tab:baseline_models}{{5}{21}{}{table.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}ARIMA}{21}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{SARIMAX}{21}{}\protected@file@percent }
-\citation{forecasting_book}
 \citation{intro_to_ML}
 \@writefile{toc}{\contentsline {subsubsection}{Model Optimization}{22}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{baseline ARIMA configuration}{22}{}\protected@file@percent }
@@ -85,54 +86,54 @@
 \newlabel{fig:pre_order_arima}{{13}{23}{}{figure.13}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Candidate features evaluated during feature selection}}{24}{}\protected@file@percent }
 \newlabel{tab:tested_features}{{6}{24}{}{table.6}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Forward Feature Selection for ARIMA with Exogenous features}}{25}{}\protected@file@percent }
-\newlabel{alg:algo_1}{{1}{25}{}{ALC@unique.22}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Forward Feature Selection for ARIMA with Exogenous features}}{24}{}\protected@file@percent }
+\newlabel{alg:algo_1}{{1}{24}{}{ALC@unique.22}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Feature selection results across seasonal, non-seasonal, and all-cell models}}{25}{}\protected@file@percent }
 \newlabel{tab:feature_selection_all}{{7}{25}{}{table.7}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Post feature selection order refinement}{26}{}\protected@file@percent }
-\newlabel{fig:arima_seasonal_post_order}{{14a}{27}{}{subfigure.14.1}{}}
-\newlabel{sub@fig:arima_seasonal_post_order}{{a}{27}{}{subfigure.14.1}{}}
-\newlabel{fig:arima_non_seasonal_post_order}{{14b}{27}{}{subfigure.14.2}{}}
-\newlabel{sub@fig:arima_non_seasonal_post_order}{{b}{27}{}{subfigure.14.2}{}}
-\newlabel{fig:arima_global_post_order}{{14c}{27}{}{subfigure.14.3}{}}
-\newlabel{sub@fig:arima_global_post_order}{{c}{27}{}{subfigure.14.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces ARIMA order selection after feature engineering}}{27}{}\protected@file@percent }
-\newlabel{fig:arima_post_orders}{{14}{27}{}{figure.14}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Post feature selection order refinement}{25}{}\protected@file@percent }
+\newlabel{fig:arima_seasonal_post_order}{{14a}{26}{}{subfigure.14.1}{}}
+\newlabel{sub@fig:arima_seasonal_post_order}{{a}{26}{}{subfigure.14.1}{}}
+\newlabel{fig:arima_non_seasonal_post_order}{{14b}{26}{}{subfigure.14.2}{}}
+\newlabel{sub@fig:arima_non_seasonal_post_order}{{b}{26}{}{subfigure.14.2}{}}
+\newlabel{fig:arima_global_post_order}{{14c}{26}{}{subfigure.14.3}{}}
+\newlabel{sub@fig:arima_global_post_order}{{c}{26}{}{subfigure.14.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces ARIMA order selection after feature engineering}}{26}{}\protected@file@percent }
+\newlabel{fig:arima_post_orders}{{14}{26}{}{figure.14}{}}
 \citation{forecasting_book}
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Post feature selection ARIMA performance comparison}}{28}{}\protected@file@percent }
-\newlabel{tab:arima_post_results}{{8}{28}{}{table.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces SARIMAX Forecasting on R1 2F}}{28}{}\protected@file@percent }
-\newlabel{fig:arima_prediction}{{15}{28}{}{figure.15}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Ordinary Least Squares}{28}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Feature selection}{29}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Feature selection results across seasonal, non-seasonal, and all-cell models}}{29}{}\protected@file@percent }
-\newlabel{tab:feature_selection_ols}{{9}{29}{}{table.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Post feature selection ARIMA performance comparison}}{27}{}\protected@file@percent }
+\newlabel{tab:arima_post_results}{{8}{27}{}{table.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces SARIMAX Forecasting on R1 2F}}{27}{}\protected@file@percent }
+\newlabel{fig:arima_prediction}{{15}{27}{}{figure.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Ordinary Least Squares}{27}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Feature selection}{28}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Feature selection results across seasonal, non-seasonal, and all-cell models}}{28}{}\protected@file@percent }
+\newlabel{tab:feature_selection_ols}{{9}{28}{}{table.9}{}}
 \citation{XG_paper}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces OLS forecasting on site R1 cell 2F}}{30}{}\protected@file@percent }
-\newlabel{fig:OLS_prediction}{{16}{30}{}{figure.16}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}XGboost}{30}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Decision tree}{31}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Implementation}{31}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{XG Boost Results}{32}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces XGBoost forecasting performance}}{32}{}\protected@file@percent }
-\newlabel{tab:xgb_results}{{10}{32}{}{table.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces XG Boost feature importance}}{33}{}\protected@file@percent }
-\newlabel{fig:xg_feature_importance}{{17}{33}{}{figure.17}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces A single tree from XG model}}{34}{}\protected@file@percent }
-\newlabel{fig:xg_tree}{{18}{34}{}{figure.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Prediction vs Actual, xg boost on site R1 cell 2F}}{34}{}\protected@file@percent }
-\newlabel{fig:xg_boost_prediction}{{19}{34}{}{figure.19}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Results and Discussion}{35}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Model Comparison}{35}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Final model comparison across forecasting approaches}}{35}{}\protected@file@percent }
-\newlabel{tab:final_model_comparison}{{11}{35}{}{table.11}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Statistical Significance of Model Differences}{36}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Statistical comparison of forecasting models across dataset splits}}{36}{}\protected@file@percent }
-\newlabel{tab:stat_results}{{12}{36}{}{table.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Impact of seasonal pre classification}{37}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Effect of global vs group-specific ARIMA and OLS models}}{37}{}\protected@file@percent }
-\newlabel{tab:model_ablation}{{13}{37}{}{table.13}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{38}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces OLS forecasting on site R1 cell 2F}}{29}{}\protected@file@percent }
+\newlabel{fig:OLS_prediction}{{16}{29}{}{figure.16}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}XGboost}{29}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Decision tree}{30}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Implementation}{30}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{XG Boost Results}{31}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces XGBoost forecasting performance}}{31}{}\protected@file@percent }
+\newlabel{tab:xgb_results}{{10}{31}{}{table.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces XG Boost feature importance}}{32}{}\protected@file@percent }
+\newlabel{fig:xg_feature_importance}{{17}{32}{}{figure.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces A single tree from XG model}}{33}{}\protected@file@percent }
+\newlabel{fig:xg_tree}{{18}{33}{}{figure.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Prediction vs Actual, xg boost on site R1 cell 2F}}{33}{}\protected@file@percent }
+\newlabel{fig:xg_boost_prediction}{{19}{33}{}{figure.19}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Results and Discussion}{34}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Model Comparison}{34}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Final model comparison across forecasting approaches}}{34}{}\protected@file@percent }
+\newlabel{tab:final_model_comparison}{{11}{34}{}{table.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Statistical Significance of Model Differences}{35}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Statistical comparison of forecasting models across dataset splits}}{35}{}\protected@file@percent }
+\newlabel{tab:stat_results}{{12}{35}{}{table.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Impact of seasonal pre classification}{36}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Effect of global vs group-specific ARIMA and OLS models}}{36}{}\protected@file@percent }
+\newlabel{tab:model_ablation}{{13}{36}{}{table.13}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{37}{}\protected@file@percent }
 \bibstyle{unsrtnat}
 \bibdata{references}
 \bibcite{120_degree_sectors}{{1}{}{{wikipedia contributers}}{{}}}
@@ -148,4 +149,4 @@
 \bibcite{AIC_paper}{{11}{AIKE(1974}{{HIROTUGUAI}}{{}}}
 \bibcite{intro_to_ML}{{12}{2023}{{Herlau}}{{}}}
 \bibcite{XG_paper}{{13}{2016}{{Chen}}{{}}}
-\gdef \@abspage@last{41}
+\gdef \@abspage@last{40}

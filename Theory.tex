@@ -62,10 +62,12 @@ The modulation order selected by the scheduler depends on the radio conditions e
 
 The trade-off between modulation order and reliability can be quantified through the Bit Error Rate (BER). For square M-QAM, the theoretical BER as a function of the received $E_b/N_0$ is well approximated by:
 \[
-\text{BER} \approx \frac{4}{\log_2 M} \left(1 - \frac{1}{\sqrt{M}}\right) \frac{1}{2} 
-\,\text{erfc}\!\left(\sqrt{\frac{3 \log_2 M}{2(M-1)} \cdot \frac{E_b}{N_0}}\right)
+\text{BER} \approx \frac{4}{\log_2 M} \left(1 - \frac{1}{\sqrt{M}}\right) \text{Q}\!\left(\sqrt{\frac{3 \log_2 M}{2(M-1)} \cdot \frac{E_b}{N_0}}\right)
 \]
-where $E_b/N_0$ is the received energy per bit to noise ratio. As shown in 
+where $M$ is the modulation order, $E_b/N_0$ is the energy per bit to noise power spectral density ratio, $\log_2(M)$ is the number of bits carried per symbol, and $Q(x)$ is the standard Gaussian Q-function, representing the probability that a standard normal random variable exceeds $x$. \\
+
+
+
 Figure~\ref{fig:BER_plot}, higher-order modulation schemes require a significantly 
 larger $E_b/N_0$ to achieve the same bit error rate, reflecting the reduced distance between 
 constellation points in figure \ref{fig:QAM_constallation_diagram}
@@ -142,7 +144,7 @@ Among these states, high PRB utilization combined with low throughput represents
 
 \subsection{Uplink and Downlink Traffic}
 
-Traffic in cellular networks is directional. Downlink refers to data transmitted from the network to the user device, while uplink refers to data transmitted from the user device to the network. Applications such as video streaming, web browsing, and social media primarily generate downlink traffic, whereas uplink traffic typically consists of user-generated content, control signalling, and other lower-volume data transmissions. As a result, downlink traffic generally dominates in consumer mobile networks. \\
+Traffic in cellular networks is directional. Downlink refers to data transmitted from the network to the user device, while uplink refers to data transmitted from the user device to the network. Applications such as video streaming, web browsing, and social media primarily generate downlink traffic, whereas uplink traffic typically consists of user-generated content, control signalling, and other lower-volume data transmissions. As a result, downlink traffic generally dominates in consumer mobile networks \cite{ericsson5gnr}. \\
 
 This asymmetry is reflected in how cellular systems are designed. In Time Division Duplex (TDD) systems, uplink and downlink share the same frequency band but are separated in time \cite{ericsson5gnr}. The available resources are divided into time slots that are assigned to either uplink or downlink, allowing the network to adapt to traffic demand. In contrast, Frequency Division Duplex (FDD) systems use separate frequency bands for uplink and downlink, enabling simultaneous transmission in both directions. \\
 

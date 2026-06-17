@@ -11,7 +11,11 @@ Figure~\ref{fig:cell_data_length} shows the distribution of the number of observ
 
 This resulted in the removal of 125 cells due to insufficient length. The removals were distributed across site types as follows: Urban (44), Suburban (48), Recreational (33). \\
 
-As we saw in figure \ref{fig:U1_vs_R1_daily_max}, the month of august in 2024 is missing, this months contained 166 samples across all cells, which is way too little and was therefor removed.  \\
+%2 Datasets were given as a part of this thesis, 1 with raw KPI's directly from the PM and later on information about the cell such as technology, frequency spectrum. Several cells were missing from the information dataset and such those cells were removed in the process. This included 29 cells, 8 urban, 12 suburban and 9 recreational. Removal of these cells for lacking information about technology and frequency spectrum was certainly not justified, it had gone under my noise and reverse engeneering the technology would not have been an issue
+
+Two datasets were provided as part of this thesis, one containing raw KPIs directly from the PM counters, and a second containing cell-level metadata, including technology generation and frequency spectrum. During preprocessing, cells present in the KPI dataset but missing from the metadata dataset were dropped as part of 
+the merge step. This affected 29 cells in total: 8 urban, 12 suburban, and 9 recreational. \\
+
 
 Duplicate entries at the (site, cell, datetime) level were removed. When duplicates contained conflicting values, rows with non-missing values in the ps data volume dl column were prioritized. This resulted in a deletion of 1,130,288 rows and the dataset going from 3,104,976 to 1,974,688 rows. \\ 
 
@@ -24,10 +28,10 @@ Duplicate entries at the (site, cell, datetime) level were removed. When duplica
 \textbf{Statistic} & \textbf{After} \\
 \hline
 Rows & 1,770,806 \\
-Urban sites (cells) & 4 (39) \\
+Urban sites (cells) & 4 (52) \\
 Suburban sites (cells) & 4 (45) \\
-Recreational sites (cells) & 4 (38) \\
-Cells total & 122 \\
+Recreational sites (cells) & 4 (39) \\
+Cells total & 136 \\
 Missing rate (data volume dl) & 166 (0.01\%) \\
 Start date & 2024-05-21 \\
 End date & 2026-03-01 \\

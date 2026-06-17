@@ -24,10 +24,7 @@ labeled as a recreational site, shows low holiday sensitivity
 similar to urban cells (Figure~\ref{fig:box_plot_holiday_avg_site}). 
 Conversely, U3, despite being geographically labeled as urban, 
 exhibits a daily activity pattern closer to those of recreational 
-cells (Figure~\ref{fig:avg_hourly_per_site}), with low daytime activity and a pronounced evening peak. This suggests that the 
-data-driven classification captures underlying traffic 
-behaviour more faithfully than geographic labels alone, 
-and that relying solely on location-based grouping may 
+cells (Figure~\ref{fig:avg_hourly_per_site}), with low daytime activity and a pronounced evening peak. This suggests that that relying solely on location-based grouping may 
 introduce misclassification. In the absence of true 
 ground truth labels at the cell level, the agreement 
 between the classification and geographic categories 
@@ -36,7 +33,7 @@ rather than definitive validation. \\
 
 In the forecasting task, all model-based approaches significantly 
 outperform naive baselines, with error reductions of approximately 
-20--30\% compared to the best naive model. Best-performing models 
+19\% compared to the best naive model. Best-performing models 
 achieve RMSE values in the range of 1.45--1.70 across all datasets, 
 compared to naive baseline RMSE values of 1.77--2.58. This confirms 
 that the dataset contains strong temporal structure that can be 
@@ -56,7 +53,7 @@ the absolute difference remains small, and OLS achieves this
 performance using a simple, interpretable linear model rather than 
 an ensemble of decision trees. This suggests that while a complex, 
 non-linear model such as XGBoost can extract a modest additional 
-benefit from pooling data across cells, a well-engineered linear 
+benefit from pooling data across cells, a well engineered linear 
 model captures nearly all of the same predictive signal while 
 remaining considerably more explainable and easier to deploy and 
 maintain in practice. Overall, this indicates that strong feature 
@@ -79,11 +76,9 @@ dataset. \\
 Overall, the results show that a simple pipeline combining 
 statistical classification and feature-driven forecasting models, 
 whether linear or tree-based, is sufficient to achieve strong 
-performance in this setting. Feature engineering plays a more 
+performance in this setting when comparing to baseline models. Feature engineering plays a more 
 important role than model complexity or segmentation of the data, although 
 model choice still produces small, statistically significant 
 differences depending on the seasonality of the subgroup. \\
 
-Future work could explore spatial dependencies between neighbouring 
-cells, or alternative unsupervised approaches for identifying 
-traffic regimes without relying on predefined statistical tests. \\
+Future work could extend the classification approach beyond a simple seasonal versus non-seasonal split. For example, additional categories could be introduced for event-driven cells, or cells could be scored on a continuous scale of seasonality rather than sorted into two fixed groups. Another direction could be classifying cells by the dominant device type or usage behaviour driving their traffic, such as distinguishing cells dominated by smartphone usage from those with a higher share of smart TV or streaming traffic, since these are likely to produce distinct volume and timing patterns. Unsupervised methods could be explored as an alternative to the t-test used in this thesis for identifying traffic regimes. Finally, deep learning models such as LSTMs or CNNs could be tested, as they may capture temporal and spatial patterns across cells more effectively than the linear and tree-based models used here. \\

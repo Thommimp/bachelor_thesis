@@ -45,11 +45,11 @@ in mean traffic is likely to occur by chance. Cells with statistically
 significant differences ($p < 0.05$) are labeled as seasonal, while 
 the remaining cells are labeled as non-seasonal. This produces an 
 interpretable and reproducible classification criterion without 
-requiring manual threshold tuning. It should be noted that hourly 
-observations are autocorrelated, which may inflate the statistical 
-confidence of the test. However, given that the resulting 
-classifications show 96.7\% agreement with the expected geographic 
-categories, this is unlikely to affect the outcome much. \\
+requiring manual threshold tuning. 
+
+%It should be noted that hourly 
+%observations are autocorrelated, which may inflate the %statistical 
+%confidence of the test. \\
 
 \begin{figure}[h]
     \centering
@@ -76,8 +76,8 @@ Figure \ref{fig:t_test_all_cells} shows the t-test results across all individual
 
 A strong separation is observed for urban and recreational sites. All 52 urban cells are classified as non-seasonal (0 seasonal, 52 non-seasonal), which aligns with the expectation that urban traffic is stable across holiday and non-holiday periods. Recreational sites show the opposite pattern, with 36 of 39 cells classified as non-seasonal and 3 classified as seasonal. \\
 
-The suburban category is more mixed. Out of 45 suburban cells, 38 are classified as seasonal and 7 as non-seasonal. This split reflects the heterogeneous nature of suburban areas, where traffic patterns are less consistent and likely influenced by multiple land-use types. \\
+The suburban category is more mixed. Out of 45 suburban cells, 38 are classified as seasonal and 7 as non-seasonal. This split reflects the diverse nature of suburban areas, where traffic patterns are more in the middle of seasonal and non-seasonal. \\
 
-Overall, the results indicate strong agreement between the method and expected behavior for urban and recreational areas, while suburban areas show mixed classifications. Across urban and recreational sites, 88 out of 91 cells are consistent with their expected class based on geographic category. All urban cells (52/52) are classified as non-seasonal, while recreational sites show 36 of 39 cells classified as non-seasonal. This level of agreement provides supporting evidence for the method, even in the absence of ground truth labels at the individual cell level, and highlights the value of a data driven approach that does not rely on geographic labels. \\
+Overall, the results indicate strong agreement between the method and expected behavior for urban and recreational areas, while suburban areas show a more mixed classifications. Across urban and recreational sites, 88 out of 91 cells are consistent with their expected class based on geographic category. All urban cells (52/52) are classified as non-seasonal, while recreational sites show 36 of 39 cells classified as non-seasonal. This level of agreement provides supporting evidence for the method, even in the absence of ground truth labels at the individual cell level, and highlights the value of a data driven approach that does not rely on geographic labels. \\
 
 Given the strong separation achieved by this simple method, the focus of the remaining work shifts to evaluating whether this classification actually improves forecasting performance, rather than exploring more complex classification alternatives such as k-means clustering, dynamic time warping similarity, or supervised classification methods. \\

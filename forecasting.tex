@@ -27,19 +27,20 @@ The forecasting target is the daily peak traffic volume, defined as the maximum 
 		\textbf{Model} & \textbf{Seasonal RMSE} & \textbf{Non-Seasonal RMSE} & \textbf{Overall RMSE} \\
 		\hline
 		Seasonal Naive & 2.36 & 2.58 & 2.51 \\
-		Mean Naive     & 1.77 & 1.99 & 1.92 \\
-		Previous Naive & 1.85 & 1.97 & 2.51 \\
+		Mean Naive     & 1.85 & 1.93 & 1.93 \\
+		Previous Naive & 1.77 & 1.99 & 1.92 \\
 		\hline
 	\end{tabular}
 	\caption{RMSE obtained by the baseline forecasting models using the 80/20 chronological train-test split. Lower values indicate better forecasting performance.}
 	\label{tab:baseline_models}
 \end{table}
 
-Table~\ref{tab:baseline_models} presents the baseline model results. The seasonal naive model, which forecasts each period by repeating the corresponding values from the previous year, performs worst across all splits. This suggests that traffic patterns are not stable year over year. \\
+Table~\ref{tab:baseline_models} presents the baseline model results. The seasonal naive model performs worst across all splits, with an RMSE of 2.36 on seasonal cells, 2.58 on non-seasonal cells, and 2.51 overall. This suggests that traffic patterns are not stable year over year. \\
 
-The mean naive model forecasts using the training set mean, while the previous naive model uses the most recently observed value as the prediction. A notable pattern is seen when comparing the two across dataset splits, the mean model performs better on non-seasonal cells, while the previous value model performs better on seasonal cells. This is consistent with the underlying traffic patterns, non-seasonal cells shows relatively stable behavior over time, making the mean a reliable predictor, whereas seasonal cells are subject to gradual trends and periodic fluctuations, meaning recent observations carry more predictive information than the historical average. \\
+A notable pattern emerges when comparing the mean and previous value models across dataset splits: the mean naive model performs better on non-seasonal cells (1.93 vs.\ 1.99), while the previous value model performs better on seasonal cells (1.77 vs.\ 1.85). This is consistent with the underlying traffic patterns, as non-seasonal cells show relatively stable behavior over time, making the mean a reliable predictor, whereas seasonal cells are subject to gradual trends and periodic fluctuations, meaning recent observations carry more predictive information than the historical average. \\
 
-It should be noted that MSE values are not directly comparable across dataset splits, as seasonal and non-seasonal cells differ in their underlying traffic variance. Comparisons are therefore made within each group independently. \\
+
+It should be noted that RMSE values are not directly comparable across dataset splits, as seasonal and non-seasonal cells differ in their underlying traffic variance. Comparisons are therefore made within each group independently. \\
 
 \subsection{ARIMA}
 \input{arima}

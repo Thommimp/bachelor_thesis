@@ -23,13 +23,12 @@ or in matrix form:
 
 Here, $\mathbf{X}$ is the feature matrix, $\boldsymbol{\beta}$ is the vector of learned coefficients, and $\boldsymbol{\epsilon}$ is the error term. \\
 
-Each feature contributes additively to the prediction through its own weight, along with a single shared intercept. This allows OLS to incorporate engineered features such as lagged values, rolling statistics, or external variables. 
+Each feature contributes additively to the prediction through its own weight, along with a single shared intercept. This allows OLS to incorporate engineered features such as lagged values, rolling statistics, calender effects or external variables. 
 
 \subsubsection{Feature selection}
+The same engineered feature pool and forward selection procedure used for the SARIMAX model were applied to the OLS model, as shown in Table~\ref{tab:tested_features} and Algorithm~\ref{alg:algo_1}. The evaluation metric and stopping criterion were also kept identical, ensuring a fair comparison between the two approaches. \\
 
-The same forward feature selection procedure used for the SARIMAX models (Algorithm~\ref{alg:algo_1}) was applied to the OLS model. The candidate feature pool, evaluation metric, and stopping criterion were kept identical to ensure a fair comparison between the two approaches.
-
-At each iteration, an OLS model was fitted using the current selected feature set and one additional candidate feature. The feature producing the largest reduction in validation RMSE was retained. The process continued until no further improvement in performance was observed.
+%At each iteration, an OLS model was fitted using the current selected feature set and one additional candidate feature. The feature producing the largest reduction in validation RMSE was retained. The process continued until no further improvement in performance was observed.
 
 \begin{table}[htbp]
 	\centering
