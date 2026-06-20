@@ -121,33 +121,14 @@ when using a group-specific model. For non-seasonal cells,
 performance remains unchanged at 1.60, indicating that 
 partitioning provides no additional benefit for this group. \\
 
-The lack of improvement for non-seasonal cells can be explained by the imbalance in the dataset, where non-seasonal cells represent approximately 69\% of all samples (96 vs 43 seasonal cells). As a result, the global model is dominated by non-seasonal behaviour and already closely approximates this subgroup, reducing the benefit of training a separate model. \\
+The lack of improvement for non-seasonal cells could be explained by the imbalance in the dataset, where non-seasonal cells represent approximately 69\% of all samples (96 vs 43 seasonal cells). As a result, the global model is dominated by non-seasonal behaviour and already closely approximates this subgroup, reducing the benefit of training a separate model. \\
 
 %Across all experiments, three main findings emerge. \\
 
 %First, all statistical and machine learning models significantly 
-outperform naive baselines, confirming that the dataset contains 
-strong and learnable temporal structure. \\
+%outperform naive baselines, confirming that the dataset contains 
+%strong and learnable temporal structure. \\
 
-%Second, OLS performs as well as or better than more complex models, 
-%indicating that linear relationships with well-designed features 
-%are sufficient to capture most of the signal. \\
+%Splitting the dataset into seasonal and non-seasonal groups provides seem to only provide marginal improvements overall. However, the largest gains are consistently observed for the seasonal subset, which represents the smaller minority group (approximately 31\% of all cells). This suggests that group-specific models are most beneficial when the target subset is underrepresented in the global training data, as the global model is otherwise dominated by the majority class behaviour. For the non-seasonal subset, which already represents 69\% of all samples, group-specific training provides little to no additional benefit. \\
 
-Splitting the dataset into seasonal and non-seasonal groups 
-provides seem to only provide marginal improvements overall. However, the largest 
-gains are consistently observed for the seasonal subset, which 
-represents the smaller minority group (approximately 31\% of all 
-cells). This suggests that group-specific models are most beneficial 
-when the target subset is underrepresented in the global training 
-data, as the global model is otherwise dominated by the majority 
-class behaviour. For the non-seasonal subset, which already 
-represents 69\% of all samples, group-specific training provides 
-little to no additional benefit. \\
-
-Overall, these results indicate that while segmentation can provide 
-small but consistent gains for minority groups, the majority of the performance is already achieved through global modelling 
-combined with feature engineering. The added complexity of 
-maintaining separate pipelines is therefore only justified when 
-a meaningful class imbalance exists between seasonal and 
-non-seasonal cells, which does not appear to be the case in 
-this dataset. \\
+%Overall, these results indicate that while segmentation can provide small but consistent gains for minority groups, the majority of the performance is already achieved through global modelling combined with feature engineering. The added complexity of maintaining separate pipelines is therefore only justified when a meaningful class imbalance exists between seasonal and non-seasonal cells, which does not appear to be the case in this dataset. \\

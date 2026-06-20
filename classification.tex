@@ -14,7 +14,7 @@ For each cell, the traffic data was divided into two groups corresponding to hol
     \label{fig:box_plot_holiday_avg_site}
 \end{figure}
 
-Figure \ref{fig:box_plot_holiday_avg_site} shows differences in standardized traffic levels between holiday and non-holiday periods across site categories \cite{intro_to_stats}.
+Figure \ref{fig:box_plot_holiday_avg_site} shows differences in standardized traffic levels between holiday and non-holiday periods across site categories \cite{intro_to_stats}. \\
 
 Recreational sites (R1--R4) show a consistent positive shift in standardized traffic during holiday periods. The mean difference between holiday and non-holiday periods ranges from $0.04$ to $0.58$ standard deviations. The strongest effects are observed at R4 ($\Delta = 0.582$) and R2 ($\Delta = 0.547$), followed by R1 ($\Delta = 0.442$). R3 shows only a weak shift ($\Delta = 0.051$), indicating a much smaller seasonal response compared to the other recreational sites. \\
 
@@ -22,7 +22,8 @@ Urban sites (U1--U4) show a consistent negative shift during holiday periods. Me
 
 Suburban sites (S1--S4) show mixed and weaker effects. S1 ($\Delta = -0.039$) and S2 ($\Delta = -0.020$) show near-zero changes, indicating little difference between holiday and non-holiday periods. S3 ($\Delta = -0.213$) and S4 ($\Delta = -0.141$) show larger negative shifts, more similar to urban patterns. Overall, the suburban group shows higher diversity, with no consistent directional response across all sites. \\
 
-Median differences follow a similar pattern, with recreational sites showing positive shifts and urban sites showing negative shifts, confirming that the observed effects are not driven solely by extreme values.
+Median differences follow a similar pattern, with recreational sites showing positive shifts and urban sites showing negative shifts, confirming that the observed effects are not driven solely by extreme values. \\
+
 \subsection{T-test Validation}
 The boxplot analysis demonstrates that holiday periods produce different traffic volumes depending on site category, suggesting that the holiday indicator can serve as a basis for statistical classification at the cell level. To formalize this, an independent two-sample t-test is applied to each cell individually, testing whether the mean traffic volume during holiday periods differs significantly from that during non-holiday periods. \\
 
@@ -45,7 +46,7 @@ in mean traffic is likely to occur by chance. Cells with statistically
 significant differences ($p < 0.05$) are labeled as seasonal, while 
 the remaining cells are labeled as non-seasonal. This produces an 
 interpretable and reproducible classification criterion without 
-requiring manual threshold tuning. 
+requiring manual threshold tuning.  \\
 
 %It should be noted that hourly 
 %observations are autocorrelated, which may inflate the %statistical 
@@ -72,7 +73,7 @@ requiring manual threshold tuning.
 	\end{tabular}
 \end{table}
 
-Figure \ref{fig:t_test_all_cells} shows the t-test results across all individual cells, and Table \ref{tab:seasonality_cells} summarizes the resulting classifications by site type.
+Figure \ref{fig:t_test_all_cells} shows the t-test results across all individual cells, and Table \ref{tab:seasonality_cells} summarizes the resulting classifications by site type. \\
 
 A strong separation is observed for urban and recreational sites. All 52 urban cells are classified as non-seasonal (0 seasonal, 52 non-seasonal), which aligns with the expectation that urban traffic is stable across holiday and non-holiday periods. Recreational sites show the opposite pattern, with 36 of 39 cells classified as non-seasonal and 3 classified as seasonal. \\
 

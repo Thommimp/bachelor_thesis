@@ -16,19 +16,20 @@
 \contentsline {section}{\numberline {5}Traffic Forecasting}{20}{}%
 \contentsline {subsection}{\numberline {5.1}Baseline Models}{20}{}%
 \contentsline {subsection}{\numberline {5.2}ARIMA}{21}{}%
-\contentsline {subsubsection}{SARIMAX}{21}{}%
+\contentsline {subsubsection}{SARIMAX}{22}{}%
 \contentsline {subsubsection}{Model Optimization}{22}{}%
 \contentsline {subsubsection}{baseline ARIMA configuration}{22}{}%
 \contentsline {subsubsection}{Feature selection}{22}{}%
-\contentsline {subsubsection}{Post feature selection order refinement}{25}{}%
-\contentsline {subsection}{\numberline {5.3}Ordinary Least Squares}{27}{}%
-\contentsline {subsubsection}{Feature selection}{28}{}%
-\contentsline {subsection}{\numberline {5.4}XGboost}{29}{}%
-\contentsline {subsubsection}{Decision tree}{30}{}%
-\contentsline {subsubsection}{Implementation}{30}{}%
-\contentsline {subsubsection}{XG Boost Results}{31}{}%
-\contentsline {section}{\numberline {6}Results and Discussion}{34}{}%
-\contentsline {subsection}{\numberline {6.1}Model Comparison}{34}{}%
-\contentsline {subsection}{\numberline {6.2}Statistical Significance of Model Differences}{35}{}%
-\contentsline {subsection}{\numberline {6.3}Impact of seasonal pre classification}{36}{}%
-\contentsline {section}{\numberline {7}Conclusion}{37}{}%
+\contentsline {subsubsection}{Post feature selection order refinement}{26}{}%
+\contentsline {subsection}{\numberline {5.3}Ordinary Least Squares}{28}{}%
+\contentsline {subsubsection}{Feature selection}{29}{}%
+\contentsline {subsection}{\numberline {5.4}XGboost}{30}{}%
+\contentsline {subsubsection}{Decision tree}{31}{}%
+\contentsline {subsubsection}{Implementation}{31}{}%
+\contentsline {subsubsection}{XG Boost Results}{32}{}%
+\contentsline {section}{\numberline {6}Results}{35}{}%
+\contentsline {subsection}{\numberline {6.1}Model Comparison}{35}{}%
+\contentsline {subsection}{\numberline {6.2}Statistical Significance of Model Differences}{36}{}%
+\contentsline {subsection}{\numberline {6.3}Impact of seasonal pre classification}{37}{}%
+\contentsline {section}{\numberline {7}Discussion}{38}{}%
+\contentsline {section}{\numberline {8}Conclusion}{39}{}%
