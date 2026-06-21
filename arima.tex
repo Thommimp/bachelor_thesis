@@ -104,35 +104,28 @@ To evaluate the impact of exogenous variables on forecasting performance, a forw
 
 \begin{algorithm}[H]\caption{Forward Feature Selection for ARIMA with Exogenous features}
 \begin{algorithmic}[1]
-
-\STATE Initialize selected feature set $S \leftarrow \emptyset$
-\STATE Initialize remaining features $R \leftarrow \{f_1, f_2, ..., f_n\}$
-\STATE Set best error $E_{best} \leftarrow \infty$
-
-\WHILE{$R \neq \emptyset$}
-    \STATE $f^* \leftarrow \emptyset$
-    \STATE $E^* \leftarrow E_{best}$
-
-    \FOR{each feature $f \in R$}
-        \STATE Train ARIMA models with feature set $S \cup \{f\}$ across all series
-        \STATE Evaluate mean test error $E_f$
-        
-        \IF{$E_f < E^*$}
-            \STATE $E^* \leftarrow E_f$
-            \STATE $f^* \leftarrow f$
-        \ENDIF
-    \ENDFOR
-
-    \IF{$f^* \neq \emptyset$}
-        \STATE Add $f^*$ to $S$
-        \STATE Remove $f^*$ from $R$
-        \STATE Update $E_{best} \leftarrow E^*$
-    \ELSE
-        \STATE Stop
-    \ENDIF
-
-\ENDWHILE
-
+	\STATE Initialize selected feature set $S \leftarrow \emptyset$
+	\STATE Initialize remaining features $R \leftarrow \{f_1, f_2, ..., f_n\}$
+	\STATE Set best error $E_{best} \leftarrow \infty$
+	\WHILE{$R \neq \emptyset$}
+	\STATE $f^* \leftarrow \emptyset$
+	\STATE $E^* \leftarrow E_{best}$
+	\FOR{each feature $f \in R$}
+	\STATE Train ARIMA models with feature set $S \cup \{f\}$ on each time series $i$ independently
+	\STATE Compute RMSE$_i$ for each series $i$, then evaluate $E_f \leftarrow \text{mean}_i(\text{RMSE}_i)$
+	\IF{$E_f < E^*$}
+	\STATE $E^* \leftarrow E_f$
+	\STATE $f^* \leftarrow f$
+	\ENDIF
+	\ENDFOR
+	\IF{$f^* \neq \emptyset$}
+	\STATE Add $f^*$ to $S$
+	\STATE Remove $f^*$ from $R$
+	\STATE Update $E_{best} \leftarrow E^*$
+	\ELSE
+	\STATE Stop
+	\ENDIF
+	\ENDWHILE
 \end{algorithmic}
 \label{alg:algo_1}
 \end{algorithm}
@@ -172,23 +165,21 @@ After feature selection, the top ARIMA orders identified during the baseline sta
 \begin{figure}[H]
 	\centering
 	
-	\begin{subfigure}[b]{0.9\linewidth}
+	\begin{subfigure}[b]{0.8\linewidth}
 		\centering
 		\includegraphics[width=0.9\linewidth]{figures/arima_post_seasonal_order_2.png}
 		\caption{ARIMA order frequency for seasonal cells}
 		\label{fig:arima_seasonal_post_order}
 	\end{subfigure}
 	
-	\vspace{0.5cm}
-	
-	\begin{subfigure}[b]{0.9\linewidth}
+	\begin{subfigure}[b]{0.8\linewidth}
 		\centering
 		\includegraphics[width=0.9\linewidth]{figures/arima_non_seasonal_pre_order_2.png}
 		\caption{ARIMA order frequency for non-seasonal cells}
 		\label{fig:arima_non_seasonal_post_order}
 	\end{subfigure}
 	
-	\begin{subfigure}[b]{0.9\linewidth}
+	\begin{subfigure}[b]{0.8\linewidth}
 		\centering
 		\includegraphics[width=0.9\linewidth]{figures/arima_global_post_order.png}
 		\caption{ARIMA order frequency for all cells}
@@ -203,25 +194,25 @@ The results show only limited changes after feature selection. For seasonal cell
 
 \begin{table}[htbp]
 	\centering
-	\caption{Post feature selection ARIMA performance comparison}
+	\caption{Final SARIMAX performance comparison}
 	\label{tab:arima_post_results}
 	
-	\begin{tabular}{lcc}
+	\begin{tabular}{lccc}
 		\toprule
-		\textbf{Model Type} & \textbf{Best Order} & \textbf{RMSE} \\
+		\textbf{Model Type} & \textbf{Best Order} & \textbf{RMSE} & \textbf{STD} \\
 		\midrule
-		Seasonal cells & $(0,0,1)(0,0,0,7)$ & 1.5139 \\
-		Non-seasonal cells & $(0,1,1)(0,0,0,7)$ & 1.7102 \\
-		All cells (global) & $(0,1,1)(0,0,0,7)$ & 1.6600 \\
+		Seasonal cells & $(0,0,1)(0,0,0,7)$ & 1.5139 & 1.50 \\
+		Non-seasonal cells & $(0,1,1)(0,0,0,7)$ & 1.7102 & 1.59\\
+		All cells (global) & $(0,1,1)(0,0,0,7)$ & 1.6600 & 1.55 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
-Overall, the results suggest that both feature engineering and model order selection contribute to forecasting performance. Feature selection provides the main improvement, while re-tuning the ARIMA order after feature selection yields only marginal additional gains. \\
+Overall, the results suggest that both feature engineering and model order selection contribute to forecasting performance. Feature selection provides the main improvement, while re-tuning the ARIMA order after feature selection yields only resulted in improvements for the seasonal subgroup \\
 
-For seasonal cells, a small but consistent improvement is observed after adjusting the ARIMA order, reducing the RMSE from the feature-selection baseline. For non-seasonal and global models, changes in ARIMA order do not lead to meaningful improvements. \\
+For seasonal cells, a consistent improvement is observed after adjusting the ARIMA order, reducing the RMSE from 1.62 down to 1.50. For non-seasonal and global models, changes in ARIMA order do not lead to meaningful improvements. \\
 
-This indicates that exogenous features carry most of the predictive signal, while ARIMA order tuning provides secondary refinement in certain cases rather than large performance shifts. \\
+This indicates that exogenous features carry most of the predictive signal, while ARIMA order tuning provides secondary refinement in certain cases.\\
 
 \begin{figure}[H]
 	\centering

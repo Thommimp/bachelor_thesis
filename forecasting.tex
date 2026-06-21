@@ -20,18 +20,44 @@ The dataset is evaluated under three settings, seasonal cells, non-seasonal cell
 
 The forecasting target is the daily peak traffic volume, defined as the maximum observed hourly traffic within a day as seen in figure \ref{fig:U1_vs_R1_daily_max}. This metric is particularly important for network planning, as it reflects peak load conditions that are critical for capacity management. \\
 
-\begin{table}[h]
+\begin{table}[htbp]
 	\centering
-	\begin{tabular}{lccc}
-		\hline
-		\textbf{Model} & \textbf{Seasonal RMSE} & \textbf{Non-Seasonal RMSE} & \textbf{Overall RMSE} \\
-		\hline
-		Seasonal Naive & 2.36 & 2.58 & 2.51 \\
-		Mean Naive     & 1.85 & 1.93 & 1.93 \\
-		Previous Naive & 1.77 & 1.99 & 1.92 \\
-		\hline
+	
+	\begin{tabular}{lcccccc}
+		\toprule
+		& \multicolumn{2}{c}{\textbf{Seasonal}} 
+		& \multicolumn{2}{c}{\textbf{Non-seasonal}} 
+		& \multicolumn{2}{c}{\textbf{All cells}} \\
+		
+		\cmidrule(lr){2-3}
+		\cmidrule(lr){4-5}
+		\cmidrule(lr){6-7}
+		
+		\textbf{Model} 
+		& \textbf{RMSE} & \textbf{STD}
+		& \textbf{RMSE} & \textbf{STD}
+		& \textbf{RMSE} & \textbf{STD} \\
+		
+		\midrule
+		
+		Seasonal Naive 
+		& 2.36 & 2.12
+		& 2.58 & 2.20
+		& 2.51 & 2.20 \\
+		
+		Mean Naive     
+		& 1.85 & 1.53
+		& 1.93 & 1.64
+		& 1.93 & 1.60 \\
+		
+		Previous Naive 
+		& 1.77 & 1.77
+		& 1.99 & 1.99
+		& 1.92 & 1.92 \\
+		
+		\bottomrule
 	\end{tabular}
-	\caption{RMSE obtained by the baseline forecasting models using the 80/20 chronological train-test split. Lower values indicate better forecasting performance.}
+	\caption{RMSE and standard deviation (STD) of residuals for baseline forecasting models.}
 	\label{tab:baseline_models}
 \end{table}
 

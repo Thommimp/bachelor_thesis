@@ -6,8 +6,8 @@ A cellular network is a wireless communication system that provides mobile devic
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\linewidth]{figures/Frequency_reuse.png}
-    \caption{Cellular network architecture showing base stations, user devices, and inter-cell connectivity.}
+    \includegraphics[width=\linewidth]{figures/cell_towers.png}
+    \caption{Cellular network architecture showing base stations and user devices.}
     \label{fig:network_archetecture}
 \end{figure}
 
@@ -17,7 +17,7 @@ User devices connect to the network by attaching to the cell that provides the b
 
 As users move or radio conditions change, connections may be transferred between cells in a process called handover \cite{handoff}. Handover ensures continuous connectivity by moving the user to a cell with better signal quality or more available capacity when needed. \\
 
-
+To understand how this connectivity is actually achieved at the radio level, the following sections build up from the bottom, starting with the modulation techniques used to transmit data in the network cells. \\
 
 \subsection{Modulation and Signal Quality}
 Orthogonal Frequency Division Multiplexing (OFDM) is a multi carrier modulation technique that divides a wide frequency band into many narrow, parallel subcarriers ~\cite{ofdm_paper}. Each subcarrier is shaped as a sinc function in the frequency domain, which produces a peak at its own center frequency and crosses zero at the center frequencies of all neighboring subcarriers as seen in figure \ref{fig:ofdm_sinc_function}. \\
@@ -89,8 +89,8 @@ In 5G NR and 4G LTE, the available frequency spectrum is organized into a two di
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\linewidth]{figures/prb_grid.jpg}
-    \caption{PRB Time and Frequency resource grid}
+    \includegraphics[width=\linewidth]{figures/prb_grid_color.png}
+    \caption{PRB Time and Frequency resource grid, showing how time slots are divided between users}
     \label{fig:prb_grid}
 \end{figure}
 
@@ -151,17 +151,17 @@ This asymmetry is reflected in how cellular systems are designed. In Time Divisi
 In both cases, the overall resource allocation is typically biased heavily toward downlink traffic to reflect the dominant direction of data usage in mobile networks. \\
 
 \subsection{Traffic Generation in Cellular Networks}
-Cellular network traffic originates from individual user sessions, where a session referes to any period of data exchange between a users device and the network cell. These session can vary widely in terms of duration, data volume, uplink/downlink depeding on the application. Streaming videos generates a sustained high volume downlink session, while messaging generates short burst of low volume traffic, and audio calls generates a sustained low volume traffic. \\
+Cellular network traffic originates from individual user sessions, where a session referes to any period of data exchange between a users device and the network cell. These session can vary widely in terms of duration, data volume, uplink/downlink depeding on the application.\\
 
-At any given time, the traffic observed at the cell level is the sum of all active user sessions within that cell. This means that cell level traffic reflects the combined behavior of many independent users rather than a single transmission pattern. As a result, traffic at the network level follows human activity patterns. Users do not generate sessions uniformly over time, but instead concentrate activity around daily routines such as working hours and commuting. This leads to clear daily patterns, with high load during the day and lower activity during the night. Longer-term variations can also appear, including weekly differences between weekdays and weekends, as well as seasonal effects driven by travel and population movement  \cite{wang2015understanding}. \\
+ At any given time, the traffic observed at the cell level is the sum of all active user sessions within that cell. This means that cell level traffic reflects the combined behavior of many independent users rather than a single transmission pattern. As a result, traffic at the network level follows human activity patterns. Users do not generate sessions uniformly over time, but instead concentrate activity around daily routines such as working hours and commuting. This leads to clear daily patterns, with high load during the day and lower activity during the night \cite{diverse_traffic_patterns}. However, the exact shape of these patterns is not uniform across all cells, but instead depends on the type of activity that dominates a given area. \\
 
-Different geographical environments produce structurally distinct traffic patterns. Cells located near event venues such as stadiums and exhibition centers may experience long periods of low activity interrupted by short, sharp peaks triggered by external events. These series are non-stationary, since their statistical properties change abruptly during event windows. \\
+Different geographical envirements produce struturally distint traffic patterns, both daily and weekly. Therefor sites can be grouped into different sections such as resident, transport, office and entertainment \cite{wang2015understanding}. \\
 
-Recreational cells serving destinations such as ski resorts, coastal regions, and holiday areas follow smoother and more regular seasonal cycles. These patterns are visible across months or years, with recurring peaks during specific periods. Traffic in these cells is typically not stable week to week, but exhibits seasonal cycles that repeat year to year. \\
+Residential areas, where people primarily live, typically show low traffic during working hours and build toward a clear peak in the evening, around 9PM, once residents return home for the day. Transport areas typically show two distinct peaks, one in the morning and one in the late afternoon, corresponding to the start and end of the workday commute. Office areas show roughly the opposite pattern to residential areas, peaking around midday before declining through the afternoon. Entertainment areas show a single peak throughout the day, timing of this peak changes when its weekday vs weekend \cite{wang2015understanding}. \\
 
-Urban and commercial cells tend to exhibit a more stable traffic structure. Traffic is driven by regular human activity patterns such as work commutes and daily routines, producing strong and consistent daily and weekly cycles, including differences between weekdays and weekends. These series tend to be closer to stationarity compared to recreational or event-driven cells. \\
+On a weekly basis, transport and office areas show noticeably higher traffic on weekdays compared to weekends, consistent with their dependence on commuting and work activity. Residential and entertainment areas, by contrast, show comparable traffic levels between weekdays and weekends, suggesting their usage is less tied to the standard work week \cite{wang2015understanding}. \\
 
-This user activity forms the basis of the measurements collected by the network. The base station continuously records and summarizes these events into cell level indicators, which are then reported as Performance Management (PM) counters at fixed time intervals. \\
+This user activity forms the basis of the measurements collected by the network. The base station continuously records and summarizes this traffic data into cell level indicators, which are then reported as Performance Management (PM) counters at fixed time intervals. \\
 
 
 \subsection{PM Counters}

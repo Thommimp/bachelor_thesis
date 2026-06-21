@@ -35,13 +35,13 @@ The same engineered feature pool and forward selection procedure used for the SA
 	\caption{Feature selection results across seasonal, non-seasonal, and all-cell models}
 	\label{tab:feature_selection_ols}
 	
-	\begin{tabular}{lcc}
+	\begin{tabular}{lccc}
 		\toprule
-		\textbf{Model Type} & \textbf{Selected Features (final step)} & \textbf{RMSE} \\
+		\textbf{Model Type} & \textbf{Selected Features} & \textbf{RMSE} & \text{STD} \\
 		\midrule
-		Seasonal cells & roll\_mean\_7, lag1, roll\_mean\_14, roll\_std\_14, holiday & 1.45 \\	
-		Non-seasonal cells & roll\_mean\_14, lag1, roll\_std\_14, is\_weekend & 1.60 \\
-		All cells & roll\_mean\_7, lag1, roll\_std\_7, roll\_mean\_14, is\_weekend  & 1.56 \\
+		Seasonal cells & roll\_mean\_7, lag1, roll\_mean\_14, roll\_std\_14, holiday & 1.45 & 1.42 \\	
+		Non-seasonal cells & roll\_mean\_14, lag1, roll\_std\_14, is\_weekend & 1.60 & 1.57 \\
+		All cells & roll\_mean\_7, lag1, roll\_std\_7, roll\_mean\_14, is\_weekend  & 1.56 & 1.53 \\
 		\bottomrule
 	\end{tabular}
 \end{table}

@@ -1,28 +1,22 @@
-This is BibTeX, Version 0.99e (TeX Live 2026)
+This is BibTeX, Version 0.99e
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: unsrtnat.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: references.bib
-I was expecting a `,' or a `}'---line 122 of file references.bib
- : 
- : title = {Principles and Algorithms for Forecasting Groups
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Name 1 in "HIROTUGUAI(AIKE," has a comma at the end for entry AIC_paper
 while executing---line 1233 of file unsrtnat.bst
 Warning--empty journal in upgrade_infastructure
-Warning--empty journal in diverse_traffic_patterns
 Warning--empty journal in wang2015understanding
 Warning--empty author in global_vs_split
-Warning--empty title in global_vs_split
 Warning--empty journal in global_vs_split
-Warning--empty year in global_vs_split
-Warning--empty year in global_vs_split
 Warning--empty author in busy_hour_forecasting
 Warning--empty journal in busy_hour_forecasting
 Warning--empty year in 120_degree_sectors
 Warning--empty year in 120_degree_sectors
 Warning--empty publisher in ericsson5gnr
+Warning--empty journal in diverse_traffic_patterns
 Warning--empty year in copenhagen_school_holidays
 Name 1 in "HIROTUGUAI(AIKE," has a comma at the end for entry AIC_paper
 while executing---line 1315 of file unsrtnat.bst
@@ -31,30 +25,30 @@ while executing---line 1315 of file unsrtnat.bst
 Warning--empty journal in XG_paper
 You've used 18 entries,
             2481 wiz_defined-function locations,
-            628 strings with 6249 characters,
-and the built_in function-call counts, 4629 in all, are:
-= -- 380
+            630 strings with 6340 characters,
+and the built_in function-call counts, 4634 in all, are:
+= -- 385
 > -- 113
 < -- 15
 + -- 68
 - -- 32
-* -- 234
-:= -- 725
-add.period$ -- 54
+* -- 227
+:= -- 731
+add.period$ -- 55
 call.type$ -- 18
-change.case$ -- 30
+change.case$ -- 31
 chr.to.int$ -- 18
-cite$ -- 36
+cite$ -- 33
 duplicate$ -- 322
 empty$ -- 518
 format.name$ -- 49
-if$ -- 987
+if$ -- 992
 int.to.chr$ -- 1
 int.to.str$ -- 19
 missing$ -- 22
-newline$ -- 98
+newline$ -- 99
 num.names$ -- 45
-pop$ -- 199
+pop$ -- 195
 preamble$ -- 1
 purify$ -- 18
 quote$ -- 0
@@ -66,8 +60,8 @@ text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 108
-warning$ -- 15
+warning$ -- 12
 while$ -- 30
 width$ -- 0
-write$ -- 214
-(There were 4 error messages)
+write$ -- 217
+(There were 3 error messages)

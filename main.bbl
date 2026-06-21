@@ -10,20 +10,16 @@ Manifold Computer.
 \newblock Network infrastructure upgrade: When and how to modernize.
 \newblock 2025.
 
-\bibitem[Lykakis(2025)]{diverse_traffic_patterns}
-Evangelos Lykakis.
-\newblock Data traffic prediction for 5g and beyond: Emerging trends,
-  challenges, and future directions: A scoping review.
-\newblock 2025.
-
 \bibitem[Wang(2017)]{wang2015understanding}
 Hoandong Wang.
 \newblock Understanding mobile traffic patterns of large scale cellular towers
   in urban environment.
 \newblock 2017.
 
-\bibitem[glo()]{global_vs_split}
-
+\bibitem[glo(2021)]{global_vs_split}
+Principles and algorithms for forecasting groups of time series: Locality and
+  globality.
+\newblock 2021.
 
 \bibitem[bus(2022)]{busy_hour_forecasting}
 Forecasting busy-hour downlink traffic in cellular networks.
@@ -72,6 +68,12 @@ Sassan Ahmadi.
 \newblock sciencedirect, 2011.
 \newblock URL
   \url{https://www.sciencedirect.com/topics/computer-science/proportional-fair-scheduler}.
+
+\bibitem[Lykakis(2025)]{diverse_traffic_patterns}
+Evangelos Lykakis.
+\newblock Data traffic prediction for 5g and beyond: Emerging trends,
+  challenges, and future directions: A scoping review.
+\newblock 2025.
 
 \bibitem[cop()]{copenhagen_school_holidays}
 Copenhagen school holidays.

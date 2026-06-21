@@ -28,6 +28,7 @@ Since XGBoost processes one observation at a time and has no built-in notion of 
 \textbf{Rolling statistics} were computed across a wide range of windows: 3, 6, 12, 24, 48, 168, 336, 720, and 2160 hours. For each window, the mean, maximum, minimum, and standard deviation were included. This gives the model a rich view of both short-term fluctuations and long-term trends. \\
 
 \textbf{Calendar features} were one-hot encoded to allow the model to learn non-linear patterns tied to time. This includes the hour of the day (0--23), day of the week (0--6), and month of the year (1--12), as well as binary indicators for weekends and public holidays. \\
+
 \textbf{Cell and technology features} were included to allow the model to differentiate between cells. The site group and technology generation (4G/5G) were one-hot encoded, along with the frequency band, covering LTE800, LTE1800, LTE2600, NR700, and NR3500. A binary seasonal indicator was also included based on the pre-classification described in earlier sections.\\
 
 In total this results in \textbf{107 input features} per observation. \\
@@ -40,13 +41,13 @@ The model was trained with 200 trees, a learning rate of 0.05, and a maximum tre
 	\centering
 	\caption{XGBoost forecasting performance}
 	\label{tab:xgb_results}
-	\begin{tabular}{lc}
+	\begin{tabular}{lcc}
 		\hline
-		Dataset & RMSE \\
+		Dataset & RMSE & STD \\
 		\hline
-		Seasonal cells & 1.46 \\
-		Non-seasonal cells & 1.56 \\
-		All cells & 1.53 \\
+		Seasonal cells & 1.46 & 1.43 \\
+		Non-seasonal cells & 1.56 & 1.54 \\
+		All cells & 1.53 & 1.51 \\
 		\hline
 	\end{tabular}
 \end{table}
